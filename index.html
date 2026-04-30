@@ -700,3 +700,15 @@ renderCart();
 </script>
 </body>
 </html>
+<!-- PayPal button -->
+<div id="paypal-button"></div>
+<script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=ILS"></script>
+<script>
+paypal.Buttons({
+  createOrder: (_, actions) => actions.order.create({
+    purchase_units: [{ amount: { value: '39.00' } }]
+  }),
+  onApprove: (_, actions) => actions.order.capture()
+           .then(() => alert('תודה! ההזמנה התקבלה ✔️'))
+}).render('#paypal-button');
+</script>
