@@ -580,7 +580,26 @@ footer {
       <span style="color:var(--muted)">סה"כ:</span>
       <span class="cart-total-num" id="cartTotal">₪0</span>
     </div>
-    <button class="checkout-btn" onclick="checkout()">לתשלום →</button>
+    <!-- כפתור תשלום PayPal -->
+<div id="paypal-button"></div>
+
+<script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=ILS"></script>
+<script>
+paypal.Buttons({
+  // סכום עסקה – כאן 39 ₪
+  createOrder: (data, actions) => actions.order.create({
+    purchase_units: [{ amount: { value: '39.00' } }]
+  }),
+
+  // מה קורה אחרי אישור תשלום
+  onApprove: (data, actions) =>
+    actions.order.capture().then(() => {
+      alert('🎉 תודה! ההזמנה התקבלה בהצלחה');
+      // כאן אפשר לקרוא לפונקציה clearCart() או להפנות לדף תודה
+    })
+}).render('#paypal-button');   // מצייר את הכפתור בדיו-
+
+</script>
   </div>
 </div>
 
@@ -705,18 +724,3 @@ renderCart();
 
 <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=ILS"></script>
 <script>
-paypal.Buttons({
-  // סכום עסקה – כאן 39 ₪
-  createOrder: (data, actions) => actions.order.create({
-    purchase_units: [{ amount: { value: '39.00' } }]
-  }),
-
-  // מה קורה אחרי אישור תשלום
-  onApprove: (data, actions) =>
-    actions.order.capture().then(() => {
-      alert('🎉 תודה! ההזמנה התקבלה בהצלחה');
-      // כאן אפשר לקרוא לפונקציה clearCart() או להפנות לדף תודה
-    })
-}).render('#paypal-button');   // מצייר את הכפתור בדיו-
-
-</script>
