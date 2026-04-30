@@ -700,15 +700,23 @@ renderCart();
 </script>
 </body>
 </html>
-<!-- PayPal button -->
+<!-- כפתור תשלום PayPal -->
 <div id="paypal-button"></div>
+
 <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=ILS"></script>
 <script>
 paypal.Buttons({
-  createOrder: (_, actions) => actions.order.create({
+  // סכום עסקה – כאן 39 ₪
+  createOrder: (data, actions) => actions.order.create({
     purchase_units: [{ amount: { value: '39.00' } }]
   }),
-  onApprove: (_, actions) => actions.order.capture()
-           .then(() => alert('תודה! ההזמנה התקבלה ✔️'))
-}).render('#paypal-button');
+
+  // מה קורה אחרי אישור תשלום
+  onApprove: (data, actions) =>
+    actions.order.capture().then(() => {
+      alert('🎉 תודה! ההזמנה התקבלה בהצלחה');
+      // כאן אפשר לקרוא לפונקציה clearCart() או להפנות לדף תודה
+    })
+}).render('#paypal-button');   // מצייר את הכפתור בדיו-
+
 </script>
