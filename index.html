@@ -3,10 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sheika Tochi — Cold Drinks</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Pacifico&family=Nunito:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
-<!-- QR Code library -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<title>Parrot Shake — Cold Drinks</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -17,16 +15,13 @@
   --teal: #06B6D4;
   --green: #22C55E;
   --blue: #0EA5E9;
-  --purple: #A855F7;
   --dark: #0D1117;
   --dark2: #161B22;
   --card: #1C2333;
-  --card2: #212A3E;
+  --card2: #21293a;
   --text: #F0F6FC;
   --muted: #8B949E;
   --gold: #FFD700;
-  --paypal-blue: #003087;
-  --paypal-sky: #009CDE;
 }
 
 html { scroll-behavior: smooth; }
@@ -38,56 +33,55 @@ body {
   overflow-x: hidden;
 }
 
-/* NEON */
-.neon-red { color: var(--red); text-shadow: 0 0 10px var(--red), 0 0 30px var(--red); }
-.neon-teal { color: var(--teal); text-shadow: 0 0 10px var(--teal), 0 0 30px var(--teal); }
-.neon-yellow { color: var(--yellow); text-shadow: 0 0 10px var(--yellow); }
-.neon-green { color: var(--green); text-shadow: 0 0 10px var(--green), 0 0 30px var(--green); }
-.neon-purple { color: var(--purple); text-shadow: 0 0 10px var(--purple), 0 0 30px var(--purple); }
-.neon-gold { color: var(--gold); text-shadow: 0 0 10px var(--gold), 0 0 25px var(--gold); }
+/* ── NEON ── */
+.neon-red   { color: var(--red);   text-shadow: 0 0 10px var(--red),  0 0 30px var(--red); }
+.neon-teal  { color: var(--teal);  text-shadow: 0 0 10px var(--teal), 0 0 30px var(--teal); }
+.neon-green { color: var(--green); text-shadow: 0 0 10px var(--green),0 0 30px var(--green); }
 
-/* ═══════════════════════════════════════════
-   NAV
-═══════════════════════════════════════════ */
+/* ── NAV ── */
 nav {
   position: fixed; top: 0; width: 100%; z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
   padding: 1rem 3rem;
-  background: rgba(13,17,23,0.9);
-  backdrop-filter: blur(14px);
+  background: rgba(13,17,23,0.92);
+  backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(255,255,255,0.06);
 }
-
 .nav-logo { display: flex; align-items: center; gap: 12px; }
-
 .parrot-icon {
   width: 44px; height: 44px;
   background: radial-gradient(circle, #E8320A 40%, #F97316 100%);
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  font-size: 22px;
-  border: 2px solid var(--red);
+  font-size: 22px; border: 2px solid var(--red);
   box-shadow: 0 0 12px rgba(232,50,10,0.5);
   animation: pulse 3s ease-in-out infinite;
 }
-
 @keyframes pulse {
   0%,100% { box-shadow: 0 0 12px rgba(232,50,10,0.5); }
-  50% { box-shadow: 0 0 24px rgba(232,50,10,0.9), 0 0 40px rgba(249,115,22,0.4); }
+  50%      { box-shadow: 0 0 24px rgba(232,50,10,0.9), 0 0 40px rgba(249,115,22,0.4); }
 }
-
 .brand-name { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 3px; }
 .brand-name span { color: var(--red); }
 
-.nav-links { display: flex; gap: 1.8rem; list-style: none; }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
 .nav-links a {
   color: var(--muted); text-decoration: none;
-  font-size: 13px; font-weight: 700; letter-spacing: 1px;
+  font-size: 14px; font-weight: 600; letter-spacing: 1px;
   text-transform: uppercase; transition: color 0.2s;
 }
 .nav-links a:hover { color: var(--teal); }
 
 .nav-right { display: flex; gap: 10px; align-items: center; }
+
+.nav-member-btn {
+  background: linear-gradient(135deg, var(--gold), #e6a800);
+  color: #0D1117; border: none; cursor: pointer;
+  padding: 8px 18px; border-radius: 20px;
+  font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 13px;
+  transition: all 0.2s; display: flex; align-items: center; gap: 6px;
+}
+.nav-member-btn:hover { opacity: 0.88; transform: scale(1.03); }
 
 .nav-cart {
   background: var(--red); color: white; border: none; cursor: pointer;
@@ -96,7 +90,6 @@ nav {
   transition: all 0.2s; display: flex; align-items: center; gap: 6px;
 }
 .nav-cart:hover { background: var(--orange); transform: scale(1.03); }
-
 .cart-badge {
   background: var(--dark); color: var(--yellow);
   border-radius: 50%; width: 18px; height: 18px;
@@ -104,67 +97,54 @@ nav {
   font-size: 11px; font-weight: 800;
 }
 
-/* ═══════════════════════════════════════════
-   HERO
-═══════════════════════════════════════════ */
+/* ── HERO ── */
 .hero {
   min-height: 100vh;
   display: flex; align-items: center; justify-content: center;
   position: relative; overflow: hidden;
   padding: 6rem 3rem 3rem;
 }
-
 .hero-bg {
   position: absolute; inset: 0;
   background:
     radial-gradient(ellipse 60% 50% at 70% 50%, rgba(6,182,212,0.12) 0%, transparent 70%),
-    radial-gradient(ellipse 50% 60% at 20% 60%, rgba(232,50,10,0.1) 0%, transparent 70%),
-    radial-gradient(ellipse 80% 40% at 50% 0%, rgba(249,115,22,0.08) 0%, transparent 60%);
+    radial-gradient(ellipse 50% 60% at 20% 60%, rgba(232,50,10,0.1)  0%, transparent 70%),
+    radial-gradient(ellipse 80% 40% at 50% 0%,  rgba(249,115,22,0.08) 0%, transparent 60%);
 }
-
-.bubble {
-  position: absolute; border-radius: 50%;
-  opacity: 0.15; animation: float linear infinite;
-}
-.bubble:nth-child(1) { width:8px; height:8px; background:var(--teal); left:10%; animation-duration:8s; }
-.bubble:nth-child(2) { width:5px; height:5px; background:var(--yellow); left:25%; animation-duration:11s; animation-delay:2s; }
-.bubble:nth-child(3) { width:10px; height:10px; background:var(--red); left:50%; animation-duration:9s; animation-delay:1s; }
-.bubble:nth-child(4) { width:6px; height:6px; background:var(--green); left:75%; animation-duration:13s; animation-delay:3s; }
-.bubble:nth-child(5) { width:9px; height:9px; background:var(--blue); left:88%; animation-duration:10s; animation-delay:0.5s; }
-
+.bubble { position: absolute; border-radius: 50%; opacity: 0.15; animation: float linear infinite; }
+.bubble:nth-child(1) { width:8px;  height:8px;  background:var(--teal);   left:10%; animation-duration:8s;  animation-delay:0s; }
+.bubble:nth-child(2) { width:5px;  height:5px;  background:var(--yellow); left:25%; animation-duration:11s; animation-delay:2s; }
+.bubble:nth-child(3) { width:10px; height:10px; background:var(--red);    left:50%; animation-duration:9s;  animation-delay:1s; }
+.bubble:nth-child(4) { width:6px;  height:6px;  background:var(--green);  left:75%; animation-duration:13s; animation-delay:3s; }
+.bubble:nth-child(5) { width:9px;  height:9px;  background:var(--blue);   left:88%; animation-duration:10s; animation-delay:0.5s; }
+.bubble:nth-child(6) { width:7px;  height:7px;  background:var(--gold);   left:60%; animation-duration:12s; animation-delay:1.5s; }
 @keyframes float {
-  from { transform: translateY(100vh) scale(0); opacity: 0; }
-  10% { opacity: 0.15; }
-  90% { opacity: 0.15; }
-  to { transform: translateY(-100px) scale(1); opacity: 0; }
+  from { transform: translateY(100vh) scale(0); opacity:0; }
+  10%  { opacity:.15; } 90% { opacity:.15; }
+  to   { transform: translateY(-100px) scale(1); opacity:0; }
 }
-
 .hero-content {
   position: relative; z-index: 2;
   display: grid; grid-template-columns: 1fr 1fr;
-  gap: 4rem; align-items: center; max-width: 1200px; width: 100%;
+  gap: 4rem; align-items: center;
+  max-width: 1200px; width: 100%;
 }
-
 .hero-tag {
   display: inline-block;
-  background: rgba(6,182,212,0.15);
-  border: 1px solid rgba(6,182,212,0.3);
-  color: var(--teal);
-  font-size: 11px; font-weight: 700; letter-spacing: 2px;
+  background: rgba(6,182,212,0.15); border: 1px solid rgba(6,182,212,0.3);
+  color: var(--teal); font-size: 11px; font-weight: 700; letter-spacing: 2px;
   text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 1.5rem;
 }
-
 .hero-h1 {
   font-family: 'Bebas Neue', sans-serif;
   font-size: clamp(56px, 8vw, 96px);
   line-height: 0.9; letter-spacing: 2px; margin-bottom: 1.5rem;
 }
-.hero-h1 .line1 { display: block; color: var(--text); }
-.hero-h1 .line2 { display: block; color: var(--red); text-shadow: 0 0 20px rgba(232,50,10,0.6); }
-.hero-h1 .line3 { display: block; color: var(--teal); font-size: 0.55em; letter-spacing: 6px; }
-
-.hero-desc { color: var(--muted); font-size: 16px; line-height: 1.7; max-width: 420px; margin-bottom: 2rem; }
-.hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+.hero-h1 .line1 { display:block; color:var(--text); }
+.hero-h1 .line2 { display:block; color:var(--red); text-shadow:0 0 20px rgba(232,50,10,0.6); }
+.hero-h1 .line3 { display:block; color:var(--teal); font-size:0.55em; letter-spacing:6px; }
+.hero-desc { color:var(--muted); font-size:16px; line-height:1.7; max-width:420px; margin-bottom:2rem; }
+.hero-btns { display:flex; gap:1rem; flex-wrap:wrap; }
 
 .btn-primary {
   background: linear-gradient(135deg, var(--red), var(--orange));
@@ -176,596 +156,407 @@ nav {
 .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(232,50,10,0.5); }
 
 .btn-outline {
-  background: transparent; color: var(--teal);
-  border: 1.5px solid var(--teal); cursor: pointer;
-  padding: 13px 28px; border-radius: 30px;
-  font-family: 'Nunito', sans-serif; font-size: 15px; font-weight: 700;
-  transition: all 0.2s;
+  background: transparent; color: var(--teal); border: 1.5px solid var(--teal);
+  cursor: pointer; padding: 13px 28px; border-radius: 30px;
+  font-family: 'Nunito', sans-serif; font-size: 15px; font-weight: 700; transition: all 0.2s;
 }
 .btn-outline:hover { background: rgba(6,182,212,0.1); transform: translateY(-2px); }
 
-.hero-logo-wrap { display: flex; align-items: center; justify-content: center; position: relative; }
-
+.hero-logo-wrap { display:flex; align-items:center; justify-content:center; position:relative; }
 .logo-glow-ring {
-  position: absolute; width: 420px; height: 420px;
-  border-radius: 50%; border: 1px solid rgba(232,50,10,0.2);
+  position: absolute; width:420px; height:420px; border-radius:50%;
+  border: 1px solid rgba(232,50,10,0.2);
   animation: spin-slow 20s linear infinite;
 }
 .logo-glow-ring::before {
-  content: ''; position: absolute; top: -2px; left: 50%;
-  width: 4px; height: 4px; background: var(--red); border-radius: 50%;
-  box-shadow: 0 0 8px var(--red);
+  content:''; position:absolute; top:-2px; left:50%; width:4px; height:4px;
+  background:var(--red); border-radius:50%; box-shadow:0 0 8px var(--red);
 }
-@keyframes spin-slow { to { transform: rotate(360deg); } }
-
+@keyframes spin-slow { to { transform:rotate(360deg); } }
 .logo-img-wrap {
-  width: 360px; height: 360px; border-radius: 50%; overflow: hidden;
-  border: 3px solid rgba(232,50,10,0.4);
-  box-shadow: 0 0 40px rgba(232,50,10,0.25), 0 0 80px rgba(6,182,212,0.1);
-  position: relative; z-index: 2;
+  width:360px; height:360px; border-radius:50%; overflow:hidden;
+  border:3px solid rgba(232,50,10,0.4);
+  box-shadow:0 0 40px rgba(232,50,10,0.25), 0 0 80px rgba(6,182,212,0.1);
+  position:relative; z-index:2;
 }
-.logo-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+.logo-img-wrap img { width:100%; height:100%; object-fit:cover; }
 
-/* ═══════════════════════════════════════════
-   ANNOUNCEMENT TICKER
-═══════════════════════════════════════════ */
-.ticker-wrap {
-  background: linear-gradient(90deg, var(--red), var(--orange), var(--yellow), var(--orange), var(--red));
-  background-size: 300% 100%;
-  animation: ticker-bg 4s linear infinite;
-  padding: 10px 0; overflow: hidden;
-}
-@keyframes ticker-bg { 0%{background-position:0%}100%{background-position:200%} }
-.ticker-inner { display: flex; gap: 60px; animation: scroll-ticker 25s linear infinite; white-space: nowrap; }
-.ticker-item { font-weight: 800; font-size: 14px; color: var(--dark); letter-spacing: 1px; text-transform: uppercase; }
+/* ── SECTION TITLES ── */
+.section-title { font-family:'Bebas Neue',sans-serif; font-size:48px; letter-spacing:3px; margin-bottom:0.5rem; }
+.section-sub   { color:var(--muted); font-size:15px; margin-bottom:3rem; }
 
-@keyframes scroll-ticker { from{transform:translateX(0)}to{transform:translateX(-50%)} }
+/* ── PRODUCTS ── */
+.products-section { padding:6rem 3rem; max-width:1300px; margin:0 auto; }
+.products-header  { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:1rem; }
 
-/* ═══════════════════════════════════════════
-   SECTION SHARED
-═══════════════════════════════════════════ */
-.section-title { font-family: 'Bebas Neue', sans-serif; font-size: 48px; letter-spacing: 3px; margin-bottom: 0.5rem; }
-.section-sub { color: var(--muted); font-size: 15px; margin-bottom: 3rem; }
-
-/* ═══════════════════════════════════════════
-   PRODUCTS
-═══════════════════════════════════════════ */
-.products-section { padding: 6rem 3rem; max-width: 1300px; margin: 0 auto; }
-
-.products-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1rem; }
-
-.filter-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 2.5rem; }
+.filter-tabs { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:2.5rem; }
 .tab {
-  padding: 7px 18px; border-radius: 20px;
-  background: var(--card); border: 1px solid rgba(255,255,255,0.07);
-  color: var(--muted); font-size: 13px; font-weight: 600;
-  cursor: pointer; transition: all 0.2s; letter-spacing: 0.5px;
+  padding:7px 18px; border-radius:20px;
+  background:var(--card); border:1px solid rgba(255,255,255,0.07);
+  color:var(--muted); font-size:13px; font-weight:600; cursor:pointer; transition:all 0.2s;
 }
-.tab:hover { border-color: rgba(255,255,255,0.15); color: var(--text); }
-.tab.active { background: rgba(232,50,10,0.15); border-color: var(--red); color: var(--red); }
+.tab:hover  { border-color:rgba(255,255,255,0.15); color:var(--text); }
+.tab.active { background:rgba(232,50,10,0.15); border-color:var(--red); color:var(--red); }
 
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 20px;
-}
+.products-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:20px; }
 
 .product-card {
-  background: var(--card); border-radius: 16px;
-  border: 1px solid rgba(255,255,255,0.06);
-  overflow: hidden; transition: all 0.25s; cursor: pointer;
+  background:var(--card); border-radius:16px;
+  border:1px solid rgba(255,255,255,0.06);
+  overflow:hidden; transition:all 0.25s;
 }
 .product-card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(255,255,255,0.15);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+  transform:translateY(-5px);
+  border-color:rgba(255,255,255,0.15);
+  box-shadow:0 12px 40px rgba(0,0,0,0.3);
 }
-
 .product-img {
-  height: 150px; display: flex; align-items: center; justify-content: center;
-  font-size: 72px; position: relative; overflow: hidden;
+  height:150px; display:flex; align-items:center; justify-content:center;
+  font-size:72px; position:relative; overflow:hidden;
 }
-
 .product-badge {
-  position: absolute; top: 10px; right: 10px;
-  background: var(--red); color: white;
-  font-size: 10px; font-weight: 800;
-  padding: 3px 8px; border-radius: 8px;
-  letter-spacing: 1px; text-transform: uppercase;
+  position:absolute; top:10px; right:10px;
+  background:var(--red); color:white;
+  font-size:10px; font-weight:800; padding:3px 8px;
+  border-radius:8px; letter-spacing:1px; text-transform:uppercase;
 }
-
-.product-body { padding: 16px; }
-.product-name { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
-.product-desc { font-size: 12px; color: var(--muted); margin-bottom: 12px; line-height: 1.4; }
-
-.product-footer { display: flex; align-items: center; justify-content: space-between; }
-.product-price { font-size: 18px; font-weight: 800; color: var(--yellow); }
-.product-price span { font-size: 12px; color: var(--muted); font-weight: 400; }
+.product-body  { padding:16px; }
+.product-name  { font-size:16px; font-weight:700; margin-bottom:4px; }
+.product-desc  { font-size:12px; color:var(--muted); margin-bottom:12px; line-height:1.4; }
+.product-footer{ display:flex; align-items:center; justify-content:space-between; }
+.product-price { font-size:18px; font-weight:800; color:var(--yellow); }
+.product-price span { font-size:12px; color:var(--muted); font-weight:400; }
 
 .add-btn {
-  width: 32px; height: 32px; border-radius: 50%;
-  background: var(--red); color: white; border: none;
-  font-size: 20px; cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  transition: all 0.2s; line-height: 1;
+  width:32px; height:32px; border-radius:50%;
+  background:var(--red); color:white; border:none;
+  font-size:20px; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  transition:all 0.2s; line-height:1;
 }
-.add-btn:hover { background: var(--orange); transform: scale(1.15); }
-.add-btn.in-cart { background: var(--green); }
+.add-btn:hover   { background:var(--orange); transform:scale(1.15); }
+.add-btn.in-cart { background:var(--green); animation:pop 0.2s ease; }
+@keyframes pop { 0%{transform:scale(1)} 50%{transform:scale(1.35)} 100%{transform:scale(1)} }
 
-@keyframes pop { 0%{transform:scale(1)}50%{transform:scale(1.35)}100%{transform:scale(1)} }
-
-/* ═══════════════════════════════════════════
-   CLUB MEMBERSHIP SECTION
-═══════════════════════════════════════════ */
-.club-section {
-  padding: 6rem 3rem;
-  background: linear-gradient(135deg, rgba(168,85,247,0.08) 0%, rgba(13,17,23,0.98) 50%, rgba(232,50,10,0.08) 100%);
-  position: relative; overflow: hidden;
+/* PayPal buy-now button on product cards */
+.buy-now-btn {
+  width:100%; margin-top:10px; padding:9px 0; border-radius:10px;
+  background:linear-gradient(135deg,#003087,#0070ba);
+  color:white; border:none; cursor:pointer;
+  font-family:'Nunito',sans-serif; font-size:13px; font-weight:800;
+  display:flex; align-items:center; justify-content:center; gap:6px;
+  transition:all 0.2s;
 }
-.club-section::before {
-  content: '★';
-  position: absolute; right: 5%; top: 50%; transform: translateY(-50%);
-  font-size: 300px; opacity: 0.03; color: var(--gold);
-}
+.buy-now-btn:hover { opacity:.88; transform:translateY(-1px); }
 
-.club-inner { max-width: 1100px; margin: 0 auto; }
-.club-header { text-align: center; margin-bottom: 3rem; }
-.club-header .section-title { color: var(--gold); text-shadow: 0 0 20px rgba(255,215,0,0.3); }
-
-.club-plans {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
+/* ── MEMBERSHIP ── */
+.membership-section {
+  padding:6rem 3rem;
+  background:linear-gradient(135deg,#0f1923 0%,#17202e 50%,#0f1923 100%);
+  position:relative; overflow:hidden;
 }
-
-.club-card {
-  background: var(--card2);
-  border-radius: 20px;
-  border: 1px solid rgba(255,255,255,0.07);
-  padding: 2rem;
-  position: relative; overflow: hidden;
-  transition: all 0.3s;
+.membership-section::before {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(ellipse 60% 40% at 50% 50%,rgba(255,215,0,0.06) 0%,transparent 70%);
+  pointer-events:none;
 }
-.club-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.4); }
-.club-card.featured {
-  border-color: var(--gold);
-  box-shadow: 0 0 30px rgba(255,215,0,0.15);
-}
-.club-card.featured::before {
-  content: '⭐ פופולרי';
-  position: absolute; top: 14px; left: 14px;
-  background: var(--gold); color: var(--dark);
-  font-size: 11px; font-weight: 800; letter-spacing: 1px;
-  padding: 4px 10px; border-radius: 10px;
-  text-transform: uppercase;
-}
+.membership-inner  { max-width:1200px; margin:0 auto; }
+.membership-title  { font-family:'Bebas Neue',sans-serif; font-size:52px; letter-spacing:3px; color:var(--gold); text-shadow:0 0 20px rgba(255,215,0,0.4); margin-bottom:0.5rem; }
+.membership-sub    { color:var(--muted); font-size:15px; margin-bottom:3rem; }
+.membership-grid   { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:24px; }
 
-.club-icon { font-size: 50px; margin-bottom: 1rem; }
-.club-plan-name { font-family: 'Bebas Neue', sans-serif; font-size: 30px; letter-spacing: 2px; margin-bottom: 0.3rem; }
-.club-plan-price { font-size: 38px; font-weight: 900; color: var(--yellow); margin-bottom: 0.3rem; }
-.club-plan-price span { font-size: 14px; color: var(--muted); font-weight: 400; }
-.club-plan-desc { color: var(--muted); font-size: 13px; margin-bottom: 1.5rem; line-height: 1.6; }
-
-.club-perks { list-style: none; margin-bottom: 2rem; }
-.club-perks li {
-  padding: 7px 0; font-size: 13px; color: var(--text);
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-  display: flex; align-items: center; gap: 8px;
+.membership-card {
+  background:var(--card); border-radius:20px;
+  border:1px solid rgba(255,255,255,0.07);
+  padding:2rem; transition:all 0.3s; position:relative; overflow:hidden;
 }
-.club-perks li::before { content: '✓'; color: var(--green); font-weight: 900; font-size: 14px; }
+.membership-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
+.membership-card.bronze::before { background:linear-gradient(90deg,#cd7f32,#e8a050); }
+.membership-card.silver::before { background:linear-gradient(90deg,#a8a9ad,#d4d5d9); }
+.membership-card.gold::before   { background:linear-gradient(90deg,var(--gold),#e6a800); }
+.membership-card.vip::before    { background:linear-gradient(90deg,var(--red),var(--orange),var(--yellow)); }
+.membership-card:hover { transform:translateY(-6px); box-shadow:0 16px 48px rgba(0,0,0,0.4); }
+.membership-card.gold { border-color:rgba(255,215,0,0.25); box-shadow:0 0 30px rgba(255,215,0,0.07); }
+.membership-card.vip  { border-color:rgba(232,50,10,0.3);  box-shadow:0 0 30px rgba(232,50,10,0.1); }
 
-/* PayPal Button style */
+.member-tier-badge {
+  display:inline-block; font-size:11px; font-weight:800;
+  letter-spacing:2px; text-transform:uppercase;
+  padding:4px 12px; border-radius:12px; margin-bottom:1rem;
+}
+.bronze .member-tier-badge { background:rgba(205,127,50,0.15); color:#cd7f32; border:1px solid rgba(205,127,50,0.3); }
+.silver .member-tier-badge { background:rgba(168,169,173,0.15); color:#c0c0c0; border:1px solid rgba(168,169,173,0.3); }
+.gold   .member-tier-badge { background:rgba(255,215,0,0.15);   color:var(--gold); border:1px solid rgba(255,215,0,0.3); }
+.vip    .member-tier-badge { background:rgba(232,50,10,0.15);   color:var(--red);  border:1px solid rgba(232,50,10,0.3); }
+
+.member-icon  { font-size:48px; margin-bottom:1rem; display:block; }
+.member-name  { font-family:'Bebas Neue',sans-serif; font-size:28px; letter-spacing:2px; margin-bottom:0.5rem; }
+.member-price { font-size:36px; font-weight:900; color:var(--yellow); margin-bottom:0.25rem; }
+.member-price span { font-size:14px; color:var(--muted); font-weight:400; }
+
+.member-features { list-style:none; margin:1.5rem 0; }
+.member-features li {
+  padding:6px 0; font-size:13px; color:var(--muted);
+  display:flex; align-items:center; gap:8px;
+  border-bottom:1px solid rgba(255,255,255,0.04);
+}
+.member-features li:last-child { border-bottom:none; }
+.member-features li .check { color:var(--green); font-size:14px; }
+
 .paypal-btn {
-  width: 100%; padding: 13px;
-  background: linear-gradient(135deg, #009CDE, #003087);
-  color: white; border: none; cursor: pointer; border-radius: 12px;
-  font-family: 'Nunito', sans-serif; font-size: 14px; font-weight: 800;
-  display: flex; align-items: center; justify-content: center; gap: 8px;
-  transition: all 0.25s; letter-spacing: 0.3px;
-  box-shadow: 0 4px 16px rgba(0,156,222,0.3);
+  width:100%; padding:13px;
+  background:linear-gradient(135deg,#003087,#0070ba);
+  color:white; border:none; cursor:pointer; border-radius:12px;
+  font-family:'Nunito',sans-serif; font-size:14px; font-weight:800;
+  transition:all 0.2s; display:flex; align-items:center; justify-content:center; gap:8px;
 }
-.paypal-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,156,222,0.45); opacity: 0.93; }
-.paypal-btn .pp-logo { font-size: 18px; }
+.paypal-btn:hover { background:linear-gradient(135deg,#0070ba,#009cde); transform:translateY(-1px); box-shadow:0 6px 20px rgba(0,112,186,0.35); }
 
-.paypal-secure {
-  text-align: center; margin-top: 8px;
-  font-size: 11px; color: var(--muted);
-  display: flex; align-items: center; justify-content: center; gap: 4px;
-}
-
-/* ═══════════════════════════════════════════
-   MEMBER LOGIN STRIP
-═══════════════════════════════════════════ */
-.member-strip {
-  background: rgba(168,85,247,0.1);
-  border-top: 1px solid rgba(168,85,247,0.2);
-  border-bottom: 1px solid rgba(168,85,247,0.2);
-  padding: 1rem 3rem;
-  display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
-}
-.member-strip-text { font-size: 14px; color: var(--text); }
-.member-strip-text span { color: var(--purple); font-weight: 700; }
-
-.member-input-row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
-.member-input {
-  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
-  color: var(--text); border-radius: 10px; padding: 8px 14px;
-  font-family: 'Nunito', sans-serif; font-size: 13px;
-  outline: none; min-width: 160px;
-}
-.member-input:focus { border-color: var(--purple); }
-.member-login-btn {
-  background: var(--purple); color: white; border: none;
-  padding: 9px 20px; border-radius: 10px; cursor: pointer;
-  font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 13px;
-  transition: all 0.2s;
-}
-.member-login-btn:hover { background: #9333ea; }
-
-#memberStatus {
-  font-size: 13px; font-weight: 700; padding: 8px 14px;
-  border-radius: 10px; display: none;
-}
-#memberStatus.active {
-  display: inline-flex; align-items: center; gap: 6px;
-  background: rgba(34,197,94,0.15); color: var(--green);
-  border: 1px solid rgba(34,197,94,0.3);
+/* "Popular" diagonal ribbon */
+.popular-ribbon {
+  position:absolute; top:16px; left:-28px;
+  background:linear-gradient(135deg,var(--red),var(--orange));
+  color:white; font-size:10px; font-weight:800;
+  padding:4px 36px; transform:rotate(-45deg);
+  letter-spacing:1px; text-transform:uppercase;
 }
 
-/* ═══════════════════════════════════════════
-   BARCODE / QR SECTION
-═══════════════════════════════════════════ */
-.qr-section {
-  padding: 4rem 3rem;
-  text-align: center;
-  background: var(--dark2);
-  border-top: 1px solid rgba(255,255,255,0.05);
-}
-.qr-inner { max-width: 500px; margin: 0 auto; }
-.qr-section .section-title { color: var(--teal); }
-.qr-section .section-sub { margin-bottom: 2rem; }
-
-.qr-box {
-  display: inline-flex; flex-direction: column; align-items: center; gap: 16px;
-  background: white; border-radius: 20px; padding: 28px;
-  box-shadow: 0 0 40px rgba(6,182,212,0.25), 0 0 80px rgba(6,182,212,0.1);
-  border: 3px solid rgba(6,182,212,0.4);
-  cursor: pointer; transition: all 0.3s;
-  position: relative;
-}
-.qr-box:hover { transform: scale(1.03); box-shadow: 0 0 60px rgba(6,182,212,0.4); }
-
-.qr-label-top {
-  font-family: 'Bebas Neue', sans-serif; letter-spacing: 3px;
-  font-size: 16px; color: #003087;
-}
-#qrcode canvas, #qrcode img { border-radius: 8px; }
-.qr-label-bottom {
-  font-size: 12px; color: #666; letter-spacing: 1px; font-weight: 700;
-}
-.qr-scan-hint {
-  margin-top: 1rem; font-size: 13px; color: var(--muted);
-  display: flex; align-items: center; justify-content: center; gap: 6px;
-}
-
-/* ═══════════════════════════════════════════
-   ABOUT
-═══════════════════════════════════════════ */
-.about-section { padding: 6rem 3rem; background: var(--dark2); }
+/* ── ABOUT ── */
+.about-section { padding:6rem 3rem; background:var(--dark2); }
 .about-inner {
-  max-width: 1100px; margin: 0 auto;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+  max-width:1100px; margin:0 auto;
+  display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center;
 }
+.about-visual { display:flex; align-items:center; justify-content:center; }
 .about-circle {
-  width: 300px; height: 300px; border-radius: 50%; overflow: hidden;
-  border: 2px solid rgba(6,182,212,0.3);
-  box-shadow: 0 0 60px rgba(6,182,212,0.15);
+  width:300px; height:300px; border-radius:50%; overflow:hidden;
+  border:2px solid rgba(6,182,212,0.3); box-shadow:0 0 60px rgba(6,182,212,0.15);
 }
-.about-circle img { width: 100%; height: 100%; object-fit: cover; }
-.about-text .section-title { color: var(--teal); }
+.about-circle img { width:100%; height:100%; object-fit:cover; }
+.about-text .section-title { color:var(--teal); }
+.stats-row { display:flex; gap:2rem; margin-top:2.5rem; flex-wrap:wrap; }
+.stat-num   { font-family:'Bebas Neue',sans-serif; font-size:40px; color:var(--yellow); }
+.stat-label { font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; }
 
-.stats-row { display: flex; gap: 2rem; margin-top: 2.5rem; }
-.stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 40px; color: var(--yellow); }
-.stat-label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+/* ── BARCODE / QR ── */
+.barcode-section { padding:6rem 3rem; background:var(--dark); position:relative; overflow:hidden; }
+.barcode-inner   { max-width:900px; margin:0 auto; text-align:center; }
+.barcode-title   { font-family:'Bebas Neue',sans-serif; font-size:48px; letter-spacing:3px; color:var(--teal); text-shadow:0 0 20px rgba(6,182,212,0.4); margin-bottom:0.5rem; }
+.barcode-sub     { color:var(--muted); font-size:15px; margin-bottom:3rem; }
 
-/* ═══════════════════════════════════════════
-   CART DRAWER
-═══════════════════════════════════════════ */
+.barcode-card {
+  display:inline-flex; flex-direction:column; align-items:center;
+  background:var(--card); border-radius:24px;
+  border:1px solid rgba(6,182,212,0.2); padding:2.5rem 3rem;
+  box-shadow:0 0 40px rgba(6,182,212,0.08); gap:1.5rem;
+}
+.barcode-frame { background:white; border-radius:12px; padding:16px; position:relative; }
+.barcode-corner { position:absolute; width:20px; height:20px; border-color:var(--teal); border-style:solid; }
+.barcode-corner.tl { top:-2px;    left:-2px;  border-width:3px 0 0 3px; border-radius:4px 0 0 0; }
+.barcode-corner.tr { top:-2px;    right:-2px; border-width:3px 3px 0 0; border-radius:0 4px 0 0; }
+.barcode-corner.bl { bottom:-2px; left:-2px;  border-width:0 0 3px 3px; border-radius:0 0 0 4px; }
+.barcode-corner.br { bottom:-2px; right:-2px; border-width:0 3px 3px 0; border-radius:0 0 4px 0; }
+
+.barcode-label { font-size:13px; color:var(--muted); letter-spacing:1px; text-transform:uppercase; }
+.barcode-scan-btn {
+  padding:12px 32px; border-radius:20px;
+  background:linear-gradient(135deg,var(--teal),var(--blue));
+  color:white; border:none; cursor:pointer;
+  font-family:'Nunito',sans-serif; font-size:14px; font-weight:800; transition:all 0.2s;
+}
+.barcode-scan-btn:hover { opacity:.88; transform:translateY(-2px); }
+
+/* ── CART DRAWER ── */
 .cart-drawer {
-  position: fixed; top: 0; right: -440px;
-  width: 420px; height: 100vh;
-  background: var(--dark2);
-  border-left: 1px solid rgba(255,255,255,0.08);
-  z-index: 200; transition: right 0.35s cubic-bezier(0.4,0,0.2,1);
-  display: flex; flex-direction: column; padding: 1.5rem;
-  overflow-y: auto;
+  position:fixed; top:0; right:-440px;
+  width:420px; height:100vh;
+  background:var(--dark2); border-left:1px solid rgba(255,255,255,0.08);
+  z-index:200; transition:right 0.35s cubic-bezier(0.4,0,0.2,1);
+  display:flex; flex-direction:column; padding:1.5rem; overflow-y:auto;
 }
-.cart-drawer.open { right: 0; }
+.cart-drawer.open { right:0; }
+.cart-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:199; display:none; }
+.cart-overlay.open { display:block; }
+.cart-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem; }
+.cart-title  { font-family:'Bebas Neue',sans-serif; font-size:28px; letter-spacing:2px; }
+.close-btn   { background:none; border:none; color:var(--muted); font-size:22px; cursor:pointer; }
+.close-btn:hover { color:var(--text); }
+.cart-empty  { text-align:center; color:var(--muted); padding:3rem 0; font-size:14px; }
 
-.cart-overlay {
-  position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 199; display: none;
-}
-.cart-overlay.open { display: block; }
+.cart-item { display:flex; align-items:center; gap:12px; padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.06); }
+.cart-item-emoji { font-size:28px; width:44px; text-align:center; }
+.cart-item-info  { flex:1; }
+.cart-item-name  { font-size:14px; font-weight:600; }
+.cart-item-price { font-size:13px; color:var(--yellow); }
+.qty-ctrl { display:flex; align-items:center; gap:8px; }
+.qty-btn  { background:var(--card); border:1px solid rgba(255,255,255,0.1); color:var(--text); width:26px; height:26px; border-radius:6px; cursor:pointer; font-size:14px; display:flex; align-items:center; justify-content:center; }
+.qty-btn:hover { background:rgba(255,255,255,0.1); }
+.qty-num  { font-size:14px; font-weight:700; min-width:16px; text-align:center; }
 
-.cart-header {
-  display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;
-}
-.cart-title { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 2px; }
-.close-btn { background: none; border: none; color: var(--muted); font-size: 22px; cursor: pointer; }
-.close-btn:hover { color: var(--text); }
-
-.cart-member-badge {
-  background: rgba(168,85,247,0.15); border: 1px solid rgba(168,85,247,0.3);
-  color: var(--purple); border-radius: 10px; padding: 8px 14px;
-  font-size: 12px; font-weight: 700; margin-bottom: 1rem;
-  display: none; align-items: center; gap: 6px;
-}
-
-.cart-empty { text-align: center; color: var(--muted); padding: 3rem 0; font-size: 14px; }
-
-.cart-item {
-  display: flex; align-items: center; gap: 12px;
-  padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
-}
-.cart-item-emoji { font-size: 28px; width: 44px; text-align: center; }
-.cart-item-info { flex: 1; }
-.cart-item-name { font-size: 14px; font-weight: 600; }
-.cart-item-price { font-size: 13px; color: var(--yellow); }
-
-.qty-ctrl { display: flex; align-items: center; gap: 8px; }
-.qty-btn {
-  background: var(--card); border: 1px solid rgba(255,255,255,0.1); color: var(--text);
-  width: 26px; height: 26px; border-radius: 6px; cursor: pointer;
-  font-size: 14px; display: flex; align-items: center; justify-content: center;
-}
-.qty-btn:hover { background: rgba(255,255,255,0.1); }
-.qty-num { font-size: 14px; font-weight: 700; min-width: 16px; text-align: center; }
-
-.cart-footer { margin-top: auto; padding-top: 1.5rem; }
-.cart-total-row { display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 16px; }
-.cart-total-num { font-size: 22px; font-weight: 800; color: var(--yellow); }
-
-.cart-discount-row {
-  display: none; justify-content: space-between; margin-bottom: 0.8rem;
-  font-size: 13px; color: var(--green);
-}
-.cart-discount-row.show { display: flex; }
+.cart-footer     { margin-top:auto; padding-top:1.5rem; }
+.cart-total-row  { display:flex; justify-content:space-between; margin-bottom:1rem; font-size:16px; }
+.cart-total-num  { font-size:22px; font-weight:800; color:var(--yellow); }
 
 .checkout-btn {
-  width: 100%; padding: 14px;
-  background: linear-gradient(135deg, var(--red), var(--orange));
-  color: white; border: none; cursor: pointer; border-radius: 12px;
-  font-family: 'Nunito', sans-serif; font-size: 15px; font-weight: 800;
-  letter-spacing: 0.5px; transition: all 0.2s; margin-bottom: 10px;
+  width:100%; padding:14px; margin-bottom:10px;
+  background:linear-gradient(135deg,var(--red),var(--orange));
+  color:white; border:none; cursor:pointer; border-radius:12px;
+  font-family:'Nunito',sans-serif; font-size:15px; font-weight:800; transition:all 0.2s;
 }
-.checkout-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+.checkout-btn:hover { opacity:.9; transform:translateY(-1px); }
 
 .paypal-checkout-btn {
-  width: 100%; padding: 13px;
-  background: linear-gradient(135deg, #009CDE, #003087);
-  color: white; border: none; cursor: pointer; border-radius: 12px;
-  font-family: 'Nunito', sans-serif; font-size: 14px; font-weight: 800;
-  display: flex; align-items: center; justify-content: center; gap: 8px;
-  transition: all 0.2s; box-shadow: 0 4px 16px rgba(0,156,222,0.3);
+  width:100%; padding:14px;
+  background:linear-gradient(135deg,#003087,#0070ba);
+  color:white; border:none; cursor:pointer; border-radius:12px;
+  font-family:'Nunito',sans-serif; font-size:15px; font-weight:800;
+  transition:all 0.2s; display:flex; align-items:center; justify-content:center; gap:8px;
 }
-.paypal-checkout-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,156,222,0.4); }
+.paypal-checkout-btn:hover { background:linear-gradient(135deg,#0070ba,#009cde); transform:translateY(-1px); }
 
-.cart-divider { text-align: center; color: var(--muted); font-size: 12px; margin: 8px 0; }
-
-/* ═══════════════════════════════════════════
-   PAYPAL MODAL
-═══════════════════════════════════════════ */
+/* ── MODAL ── */
 .modal-overlay {
-  position: fixed; inset: 0; background: rgba(0,0,0,0.75);
-  z-index: 300; display: none; align-items: center; justify-content: center;
+  position:fixed; inset:0; background:rgba(0,0,0,0.78); z-index:300;
+  display:flex; align-items:center; justify-content:center;
+  opacity:0; pointer-events:none; transition:opacity 0.25s;
 }
-.modal-overlay.open { display: flex; }
+.modal-overlay.open { opacity:1; pointer-events:all; }
+.modal {
+  background:var(--card2); border-radius:20px; padding:2.5rem;
+  max-width:480px; width:90%; position:relative;
+  border:1px solid rgba(255,255,255,0.08);
+  transform:scale(0.94); transition:transform 0.25s;
+  box-shadow:0 24px 80px rgba(0,0,0,0.5);
+}
+.modal-overlay.open .modal { transform:scale(1); }
+.modal-close { position:absolute; top:16px; right:16px; background:none; border:none; color:var(--muted); font-size:20px; cursor:pointer; }
+.modal-close:hover { color:var(--text); }
+.modal h2    { font-family:'Bebas Neue',sans-serif; font-size:32px; letter-spacing:2px; margin-bottom:0.4rem; }
+.modal-sub   { color:var(--muted); font-size:13px; margin-bottom:1.5rem; }
+.modal-price { font-size:36px; font-weight:900; color:var(--yellow); margin-bottom:1.5rem; }
+.modal-price small { font-size:14px; color:var(--muted); font-weight:400; }
+.modal-features { list-style:none; margin-bottom:2rem; }
+.modal-features li { padding:8px 0; font-size:14px; color:var(--muted); display:flex; align-items:center; gap:10px; border-bottom:1px solid rgba(255,255,255,0.05); }
+.modal-features li .check { color:var(--green); }
+.modal-paypal-btn {
+  width:100%; padding:15px;
+  background:linear-gradient(135deg,#003087,#0070ba);
+  color:white; border:none; cursor:pointer; border-radius:12px;
+  font-family:'Nunito',sans-serif; font-size:16px; font-weight:900;
+  transition:all 0.2s; display:flex; align-items:center; justify-content:center; gap:10px;
+}
+.modal-paypal-btn:hover { background:linear-gradient(135deg,#0070ba,#009cde); transform:translateY(-1px); box-shadow:0 8px 24px rgba(0,112,186,0.4); }
+.modal-note { text-align:center; font-size:11px; color:var(--muted); margin-top:1rem; }
 
-.paypal-modal {
-  background: var(--dark2); border-radius: 20px;
-  border: 1px solid rgba(0,156,222,0.3);
-  box-shadow: 0 0 60px rgba(0,156,222,0.2);
-  padding: 2.5rem; max-width: 420px; width: 90%;
-  text-align: center; animation: slideUp 0.3s ease;
-}
-@keyframes slideUp { from{transform:translateY(30px);opacity:0}to{transform:translateY(0);opacity:1} }
+/* PayPal word-mark helper */
+.pp { font-style:italic; font-weight:900; }
+.pp .p1 { color:#009cde; }
+.pp .p2 { color:#c0dbf5; }
 
-.paypal-modal-logo {
-  font-size: 48px; margin-bottom: 0.5rem;
-}
-.paypal-modal-title {
-  font-family: 'Bebas Neue', sans-serif; font-size: 28px;
-  letter-spacing: 2px; margin-bottom: 0.3rem;
-  background: linear-gradient(90deg, #009CDE, #003087);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-}
-.paypal-modal-amount {
-  font-size: 38px; font-weight: 900; color: var(--yellow); margin: 1rem 0;
-}
-.paypal-modal-desc { color: var(--muted); font-size: 13px; margin-bottom: 1.5rem; line-height: 1.6; }
-
-.paypal-email-input {
-  width: 100%; padding: 12px 16px;
-  background: rgba(255,255,255,0.06); border: 1px solid rgba(0,156,222,0.3);
-  color: var(--text); border-radius: 12px;
-  font-family: 'Nunito', sans-serif; font-size: 14px;
-  outline: none; margin-bottom: 12px;
-}
-.paypal-email-input:focus { border-color: var(--paypal-sky); }
-
-.paypal-confirm-btn {
-  width: 100%; padding: 14px;
-  background: linear-gradient(135deg, #009CDE, #003087);
-  color: white; border: none; cursor: pointer; border-radius: 12px;
-  font-family: 'Nunito', sans-serif; font-size: 15px; font-weight: 800;
-  margin-bottom: 10px; transition: all 0.2s;
-}
-.paypal-confirm-btn:hover { opacity: 0.9; transform: translateY(-1px); }
-
-.paypal-cancel-btn {
-  background: none; border: 1px solid rgba(255,255,255,0.1);
-  color: var(--muted); cursor: pointer; padding: 10px; border-radius: 10px;
-  width: 100%; font-family: 'Nunito', sans-serif; font-size: 13px; transition: all 0.2s;
-}
-.paypal-cancel-btn:hover { border-color: rgba(255,255,255,0.2); color: var(--text); }
-
-.paypal-ssl { margin-top: 12px; font-size: 11px; color: var(--muted); display: flex; align-items: center; justify-content: center; gap: 4px; }
-
-/* V emoji verification modal */
-.v-modal {
-  background: var(--dark); border-radius: 20px;
-  border: 2px solid var(--green);
-  box-shadow: 0 0 60px rgba(34,197,94,0.3);
-  padding: 3rem; max-width: 360px; width: 90%;
-  text-align: center; animation: slideUp 0.3s ease;
-}
-.v-emoji-big { font-size: 120px; line-height: 1; margin-bottom: 1rem; animation: bounce-v 1s ease infinite; }
-@keyframes bounce-v { 0%,100%{transform:scale(1)}50%{transform:scale(1.1)} }
-.v-title { font-family: 'Bebas Neue', sans-serif; font-size: 36px; color: var(--green); letter-spacing: 3px; margin-bottom: 0.5rem; }
-.v-subtitle { color: var(--muted); font-size: 14px; margin-bottom: 1.5rem; }
-.v-close-btn {
-  padding: 12px 30px; background: var(--green); color: var(--dark);
-  border: none; border-radius: 12px; cursor: pointer;
-  font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 14px;
-}
-
-/* ═══════════════════════════════════════════
-   FOOTER
-═══════════════════════════════════════════ */
-footer {
-  background: var(--dark); border-top: 1px solid rgba(255,255,255,0.06);
-  padding: 3rem; text-align: center;
-}
-.footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 32px; letter-spacing: 4px; margin-bottom: 0.5rem; }
-.footer-logo span { color: var(--red); }
-.footer-text { color: var(--muted); font-size: 13px; }
-
-.footer-links { display: flex; justify-content: center; gap: 2rem; margin: 1rem 0; flex-wrap: wrap; }
-.footer-links a { color: var(--muted); text-decoration: none; font-size: 13px; transition: color 0.2s; }
-.footer-links a:hover { color: var(--teal); }
-
-/* TOAST */
+/* ── TOAST ── */
 .toast {
-  position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(100px);
-  background: var(--card2); border: 1px solid rgba(255,255,255,0.1);
-  color: var(--text); padding: 12px 24px; border-radius: 12px;
-  font-size: 14px; font-weight: 600; z-index: 999;
-  transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
-  white-space: nowrap; box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  position:fixed; bottom:32px; left:50%;
+  transform:translateX(-50%) translateY(80px);
+  background:var(--green); color:white; border-radius:12px;
+  padding:14px 28px; font-weight:700; font-size:15px;
+  z-index:500; transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);
+  box-shadow:0 8px 32px rgba(34,197,94,0.35); white-space:nowrap;
 }
-.toast.show { transform: translateX(-50%) translateY(0); }
-.toast.success { border-color: var(--green); }
-.toast.error { border-color: var(--red); }
+.toast.show { transform:translateX(-50%) translateY(0); }
 
-/* FADE IN */
-.fade-in { opacity: 0; transform: translateY(20px); animation: fadeIn 0.7s forwards; }
-.fade-in:nth-child(1) { animation-delay: 0.1s; }
-.fade-in:nth-child(2) { animation-delay: 0.2s; }
-@keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+/* ── FOOTER ── */
+footer { background:var(--dark); border-top:1px solid rgba(255,255,255,0.06); padding:3rem; text-align:center; }
+.footer-logo { font-family:'Bebas Neue',sans-serif; font-size:32px; letter-spacing:4px; margin-bottom:0.5rem; }
+.footer-logo span { color:var(--red); }
+.footer-text { color:var(--muted); font-size:13px; }
+.footer-paypal { margin-top:1.5rem; display:flex; align-items:center; justify-content:center; gap:8px; color:var(--muted); font-size:12px; }
 
-/* ═══════════════════════════════════════════
-   RESPONSIVE
-═══════════════════════════════════════════ */
-@media (max-width: 768px) {
-  .hero-content { grid-template-columns: 1fr; gap: 2rem; }
-  .logo-img-wrap { width: 250px; height: 250px; }
-  .logo-glow-ring { width: 290px; height: 290px; }
-  .about-inner { grid-template-columns: 1fr; }
-  nav { padding: 1rem; }
-  .nav-links { display: none; }
-  .club-plans { grid-template-columns: 1fr; }
-  .cart-drawer { width: 100%; right: -100%; }
-  .member-strip { flex-direction: column; align-items: flex-start; }
+/* ── ANIMATIONS ── */
+.fade-in { opacity:0; transform:translateY(20px); animation:fadeIn 0.7s forwards; }
+.fade-in:nth-child(1) { animation-delay:.1s; }
+.fade-in:nth-child(2) { animation-delay:.2s; }
+@keyframes fadeIn { to { opacity:1; transform:translateY(0); } }
+
+/* ── RESPONSIVE ── */
+@media (max-width:768px) {
+  .hero-content { grid-template-columns:1fr; gap:2rem; }
+  .logo-img-wrap { width:250px; height:250px; }
+  .logo-glow-ring { width:290px; height:290px; }
+  .about-inner { grid-template-columns:1fr; }
+  nav { padding:1rem; }
+  .nav-links { display:none; }
+  .cart-drawer { width:100%; right:-100%; }
+  .membership-grid { grid-template-columns:1fr; }
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
+<!-- TOAST -->
+<div class="toast" id="toast">✅ הצטרפת בהצלחה!</div>
+
+<!-- ════════════════ NAV ════════════════ -->
 <nav>
   <div class="nav-logo">
     <div class="parrot-icon">🦜</div>
-    <div class="brand-name">SHEIKA <span>TOCHI</span></div>
+    <div class="brand-name">PARROT <span>SHAKE</span></div>
   </div>
   <ul class="nav-links">
     <li><a href="#products">משקאות</a></li>
-    <li><a href="#club">מועדון</a></li>
+    <li><a href="#membership">מועדון</a></li>
     <li><a href="#about">אודות</a></li>
+    <li><a href="#barcode">ברקוד</a></li>
     <li><a href="#contact">צור קשר</a></li>
   </ul>
   <div class="nav-right">
+    <button class="nav-member-btn" onclick="document.getElementById('membership').scrollIntoView({behavior:'smooth'})">
+      👑 הצטרף למועדון
+    </button>
     <button class="nav-cart" onclick="toggleCart()">
       🛒 עגלה <span class="cart-badge" id="cartBadge">0</span>
     </button>
   </div>
 </nav>
 
-<!-- TICKER -->
-<div class="ticker-wrap" style="margin-top:72px;">
-  <div class="ticker-inner" id="tickerInner">
-    <span class="ticker-item">🦜 Sheika Tochi</span>
-    <span class="ticker-item">🌴 משקאות טרופיים</span>
-    <span class="ticker-item">⚡ אנרגיה טבעית</span>
-    <span class="ticker-item">🌊 טעם הקיץ</span>
-    <span class="ticker-item">💳 PayPal מאובטח</span>
-    <span class="ticker-item">🏆 מועדון חברים</span>
-    <span class="ticker-item">🦜 Sheika Tochi</span>
-    <span class="ticker-item">🌴 משקאות טרופיים</span>
-    <span class="ticker-item">⚡ אנרגיה טבעית</span>
-    <span class="ticker-item">🌊 טעם הקיץ</span>
-    <span class="ticker-item">💳 PayPal מאובטח</span>
-    <span class="ticker-item">🏆 מועדון חברים</span>
-  </div>
-</div>
-
-<!-- HERO -->
+<!-- ════════════════ HERO ════════════════ -->
 <section class="hero">
   <div class="hero-bg">
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
+    <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+    <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
   </div>
   <div class="hero-content">
     <div class="hero-text fade-in">
       <div class="hero-tag">🌴 הטעם של הקיץ האמיתי</div>
       <h1 class="hero-h1">
-        <span class="line1">SHEIKA</span>
-        <span class="line2">TOCHI</span>
+        <span class="line1">PARROT</span>
+        <span class="line2">SHAKE</span>
         <span class="line3">COLD DRINKS</span>
       </h1>
-      <p class="hero-desc">משקאות קרים טרופיים בטעמים ייחודיים שיקחו אתכם ישר לחוף הים. כי כל רגע ראוי להיות חגיגה.</p>
+      <p class="hero-desc">
+        משקאות קרים טרופיים בטעמים ייחודיים שיקחו אתכם ישר לחוף הים.<br>
+        כי כל רגע ראוי להיות חגיגה.
+      </p>
       <div class="hero-btns">
         <button class="btn-primary" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">הזמן עכשיו 🍹</button>
-        <button class="btn-outline" onclick="document.getElementById('club').scrollIntoView({behavior:'smooth'})">הצטרף למועדון ⭐</button>
+        <button class="btn-outline"  onclick="document.getElementById('membership').scrollIntoView({behavior:'smooth'})">👑 מועדון VIP</button>
       </div>
     </div>
     <div class="hero-logo-wrap fade-in">
       <div class="logo-glow-ring"></div>
       <div class="logo-img-wrap">
-        <img src="/mnt/user-data/uploads/1777550417318_image.png" alt="Sheika Tochi Logo"
-          onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:100px;\'>🦜</div>'">
+        <img src="/mnt/user-data/uploads/1777550417318_image.png" alt="Parrot Shake Logo"
+             onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:100px;\'>🦜</div>'">
       </div>
     </div>
   </div>
 </section>
 
-<!-- MEMBER LOGIN STRIP -->
-<div class="member-strip">
-  <div class="member-strip-text">👑 כבר <span>חבר מועדון?</span> התחבר כאן לקבל הנחה בלעדית</div>
-  <div class="member-input-row">
-    <input class="member-input" type="text" id="memberIdInput" placeholder="מספר חבר / אימייל" />
-    <button class="member-login-btn" onclick="loginMember()">התחבר</button>
-    <span id="memberStatus"></span>
-  </div>
-</div>
-
-<!-- PRODUCTS -->
+<!-- ════════════════ PRODUCTS ════════════════ -->
 <section class="products-section" id="products">
   <div class="products-header">
     <div>
       <div class="section-title neon-red">המשקאות שלנו</div>
-      <div class="section-sub">בחרו מהמגוון הטרופי שלנו — חברי מועדון מקבלים 15% הנחה!</div>
+      <div class="section-sub">בחרו מהמגוון הטרופי שלנו — הוסיפו לעגלה או שלמו ישירות עם PayPal</div>
     </div>
   </div>
   <div class="filter-tabs" id="filterTabs">
@@ -778,295 +569,274 @@ footer {
   <div class="products-grid" id="productsGrid"></div>
 </section>
 
-<!-- CLUB MEMBERSHIP -->
-<section class="club-section" id="club">
-  <div class="club-inner">
-    <div class="club-header">
-      <div class="section-title neon-gold">מועדון Tochi ⭐</div>
-      <div class="section-sub" style="color:var(--muted);font-size:15px;">הצטרפו למשפחת הפרוש — הטבות בלעדיות לחברים</div>
-    </div>
-    <div class="club-plans">
-
-      <!-- BASIC -->
-      <div class="club-card">
-        <div class="club-icon">🌿</div>
-        <div class="club-plan-name neon-teal">BASIC</div>
-        <div class="club-plan-price">₪19 <span>/ חודש</span></div>
-        <div class="club-plan-desc">מושלם למי שאוהב להתחיל — כניסה למועדון עם הטבות בסיסיות.</div>
-        <ul class="club-perks">
-          <li>10% הנחה על כל הזמנה</li>
-          <li>1 משקה חינם בחודש</li>
-          <li>גישה לטעמים עונתיים</li>
-          <li>ניוזלטר בלעדי</li>
-        </ul>
-        <button class="paypal-btn" onclick="openPaypal('Basic', 19, 'חבר Basic')">
-          <span class="pp-logo">🅿</span> שלם עם PayPal — ₪19/חודש
-        </button>
-        <div class="paypal-secure">🔒 תשלום מאובטח דרך PayPal</div>
-      </div>
-
-      <!-- PRO (featured) -->
-      <div class="club-card featured">
-        <div class="club-icon">🦜</div>
-        <div class="club-plan-name neon-gold">TOCHI PRO</div>
-        <div class="club-plan-price">₪39 <span>/ חודש</span></div>
-        <div class="club-plan-desc">החבילה הכי אהובה — הנחות גדולות וחוויות בלעדיות לאוהבי המשקאות האמיתיים.</div>
-        <ul class="club-perks">
-          <li>15% הנחה על כל הזמנה</li>
-          <li>3 משקאות חינם בחודש</li>
-          <li>early access לטעמים חדשים</li>
-          <li>הזמנה לאירועי טעימות</li>
-          <li>מתנת יום הולדת מיוחדת</li>
-          <li>ליין שירות עדיפותי</li>
-        </ul>
-        <button class="paypal-btn" onclick="openPaypal('Tochi Pro', 39, 'חבר Tochi Pro')">
-          <span class="pp-logo">🅿</span> שלם עם PayPal — ₪39/חודש
-        </button>
-        <div class="paypal-secure">🔒 תשלום מאובטח דרך PayPal</div>
-      </div>
-
-      <!-- VIP -->
-      <div class="club-card">
-        <div class="club-icon">👑</div>
-        <div class="club-plan-name neon-purple">VIP PARROT</div>
-        <div class="club-plan-price">₪79 <span>/ חודש</span></div>
-        <div class="club-plan-desc">חוויית הפרוש המלאה — כל מה שיש לנו להציע, ללא פשרות.</div>
-        <ul class="club-perks">
-          <li>20% הנחה על כל הזמנה</li>
-          <li>משקאות חינם ללא הגבלה</li>
-          <li>משלוח חינם לכל הארץ</li>
-          <li>בקבוק VIP ממותג</li>
-          <li>הזמנות לאירועים פרטיים</li>
-          <li>מנטור טרופי אישי 🤣</li>
-          <li>הנחה 30% על מארזים</li>
-        </ul>
-        <button class="paypal-btn" onclick="openPaypal('VIP Parrot', 79, 'חבר VIP Parrot')">
-          <span class="pp-logo">🅿</span> שלם עם PayPal — ₪79/חודש
-        </button>
-        <div class="paypal-secure">🔒 תשלום מאובטח דרך PayPal</div>
-      </div>
-
-    </div>
+<!-- ════════════════ MEMBERSHIP ════════════════ -->
+<section class="membership-section" id="membership">
+  <div class="membership-inner">
+    <div class="membership-title">מועדון החברים</div>
+    <div class="membership-sub">הצטרפו למשפחת Parrot Shake ותהנו מהטבות בלעדיות — תשלום מאובטח דרך PayPal</div>
+    <div class="membership-grid" id="membershipGrid"></div>
   </div>
 </section>
 
-<!-- QR / BARCODE SECTION -->
-<section class="qr-section" id="barcode">
-  <div class="qr-inner">
-    <div class="section-title neon-teal">סרוק אותנו 📱</div>
-    <div class="section-sub">סרקו את הברקוד לאישור הגעה ולגלות הפתעה מיוחדת</div>
-    <div class="qr-box" onclick="openVModal()">
-      <div class="qr-label-top">SHEIKA TOCHI • SCAN ME</div>
-      <div id="qrcode"></div>
-      <div class="qr-label-bottom">★ VERIFIED MEMBER ★</div>
-    </div>
-    <div class="qr-scan-hint">📸 לחצו על הברקוד לאישור</div>
-  </div>
-</section>
-
-<!-- ABOUT -->
+<!-- ════════════════ ABOUT ════════════════ -->
 <section class="about-section" id="about">
   <div class="about-inner">
     <div class="about-visual">
       <div class="about-circle">
-        <img src="/mnt/user-data/uploads/1777550417318_image.png" alt="Sheika Tochi"
-          onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:120px;background:#1C2333;\'>🦜</div>'">
+        <img src="/mnt/user-data/uploads/1777550417318_image.png" alt="Parrot Shake"
+             onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:120px;background:#1C2333;\'>🦜</div>'">
       </div>
     </div>
     <div class="about-text">
       <div class="section-title">הסיפור שלנו</div>
       <p style="color:var(--muted);line-height:1.8;font-size:15px;margin-bottom:1rem;">
-        Sheika Tochi נולדה מאהבה לטעמים טרופיים ולרוח החופשייה של הים. הפרוש שלנו — הלוגו שלנו — מייצג את הצבעוניות, השמחה והרוח החופשית שאנחנו מכניסים לכל בקבוק.
+        Parrot Shake נולדה מאהבה לטעמים טרופיים ולרוח החופשייה של הים.
+        הפרוש שלנו — הלוגו שלנו — מייצג את הצבעוניות, השמחה והרוח החופשית
+        שאנחנו מכניסים לכל בקבוק.
       </p>
       <p style="color:var(--muted);line-height:1.8;font-size:15px;">
-        אנחנו מאמינים שכל משקה הוא חוויה. כל טעם הוא זיכרון. כל לגימה היא טיול קצר לחוף רחוק.
+        אנחנו מאמינים שכל משקה הוא חוויה. כל טעם הוא זיכרון.
+        כל לגימה היא טיול קצר לחוף רחוק.
       </p>
       <div class="stats-row">
-        <div class="stat">
-          <div class="stat-num">12+</div>
-          <div class="stat-label">טעמים</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">50K</div>
-          <div class="stat-label">לקוחות</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">100%</div>
-          <div class="stat-label">טבעי</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">3</div>
-          <div class="stat-label">מועדון דרגות</div>
-        </div>
+        <div class="stat"><div class="stat-num">12+</div><div class="stat-label">טעמים</div></div>
+        <div class="stat"><div class="stat-num">50K</div><div class="stat-label">לקוחות</div></div>
+        <div class="stat"><div class="stat-num">100%</div><div class="stat-label">טבעי</div></div>
+        <div class="stat"><div class="stat-num">3K+</div><div class="stat-label">חברי מועדון</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer id="contact">
-  <div class="footer-logo">SHEIKA <span>TOCHI</span></div>
-  <div class="footer-links">
-    <a href="#products">משקאות</a>
-    <a href="#club">מועדון חברים</a>
-    <a href="#barcode">ברקוד</a>
-    <a href="#about">אודות</a>
+<!-- ════════════════ BARCODE / QR ════════════════ -->
+<section class="barcode-section" id="barcode">
+  <div class="barcode-inner">
+    <div class="barcode-title">סרוק אותנו ✅</div>
+    <div class="barcode-sub">סרקו את הקוד ותראו את ה-V של Parrot Shake — אישור מקורי ומאומת</div>
+    <div class="barcode-card">
+      <div class="barcode-frame" style="position:relative;">
+        <div class="barcode-corner tl"></div>
+        <div class="barcode-corner tr"></div>
+        <div class="barcode-corner bl"></div>
+        <div class="barcode-corner br"></div>
+        <!-- Decorative QR-style SVG — clicking/tapping opens the ✅ modal -->
+        <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"
+             style="display:block;cursor:pointer;" onclick="openVModal()" title="לחץ לצפייה">
+          <rect width="200" height="200" fill="white"/>
+          <!-- Finder TL -->
+          <rect x="10" y="10" width="49" height="49" fill="#111" rx="3"/>
+          <rect x="17" y="17" width="35" height="35" fill="white" rx="2"/>
+          <rect x="24" y="24" width="21" height="21" fill="#111" rx="1"/>
+          <!-- Finder TR -->
+          <rect x="141" y="10" width="49" height="49" fill="#111" rx="3"/>
+          <rect x="148" y="17" width="35" height="35" fill="white" rx="2"/>
+          <rect x="155" y="24" width="21" height="21" fill="#111" rx="1"/>
+          <!-- Finder BL -->
+          <rect x="10" y="141" width="49" height="49" fill="#111" rx="3"/>
+          <rect x="17" y="148" width="35" height="35" fill="white" rx="2"/>
+          <rect x="24" y="155" width="21" height="21" fill="#111" rx="1"/>
+          <!-- Data modules -->
+          <rect x="69" y="10" width="7" height="7" fill="#111"/>
+          <rect x="83" y="10" width="7" height="7" fill="#111"/>
+          <rect x="97" y="10" width="7" height="7" fill="#111"/>
+          <rect x="111" y="10" width="7" height="7" fill="#111"/>
+          <rect x="125" y="10" width="7" height="7" fill="#111"/>
+          <rect x="69" y="24" width="7" height="7" fill="#111"/>
+          <rect x="97" y="24" width="7" height="7" fill="#111"/>
+          <rect x="125" y="24" width="7" height="7" fill="#111"/>
+          <rect x="69" y="38" width="7" height="7" fill="#111"/>
+          <rect x="83" y="38" width="7" height="7" fill="#111"/>
+          <rect x="111" y="38" width="7" height="7" fill="#111"/>
+          <rect x="69" y="52" width="7" height="7" fill="#111"/>
+          <rect x="97" y="52" width="7" height="7" fill="#111"/>
+          <rect x="125" y="52" width="7" height="7" fill="#111"/>
+          <rect x="69" y="66" width="7" height="7" fill="#111"/>
+          <rect x="97" y="66" width="7" height="7" fill="#111"/>
+          <rect x="125" y="66" width="7" height="7" fill="#111"/>
+          <rect x="10" y="69" width="7" height="7" fill="#111"/>
+          <rect x="24" y="69" width="7" height="7" fill="#111"/>
+          <rect x="38" y="69" width="7" height="7" fill="#111"/>
+          <rect x="52" y="69" width="7" height="7" fill="#111"/>
+          <rect x="83" y="69" width="7" height="7" fill="#111"/>
+          <rect x="111" y="69" width="7" height="7" fill="#111"/>
+          <rect x="141" y="69" width="7" height="7" fill="#111"/>
+          <rect x="155" y="69" width="7" height="7" fill="#111"/>
+          <rect x="169" y="69" width="7" height="7" fill="#111"/>
+          <rect x="183" y="69" width="7" height="7" fill="#111"/>
+          <rect x="69" y="83" width="7" height="7" fill="#111"/>
+          <rect x="97" y="83" width="7" height="7" fill="#111"/>
+          <rect x="125" y="83" width="7" height="7" fill="#111"/>
+          <rect x="141" y="83" width="7" height="7" fill="#111"/>
+          <rect x="169" y="83" width="7" height="7" fill="#111"/>
+          <rect x="10"  y="83" width="7" height="7" fill="#111"/>
+          <rect x="38"  y="83" width="7" height="7" fill="#111"/>
+          <rect x="10"  y="97" width="7" height="7" fill="#111"/>
+          <rect x="24"  y="97" width="7" height="7" fill="#111"/>
+          <rect x="52"  y="97" width="7" height="7" fill="#111"/>
+          <rect x="83"  y="97" width="7" height="7" fill="#111"/>
+          <rect x="111" y="97" width="7" height="7" fill="#111"/>
+          <rect x="141" y="97" width="7" height="7" fill="#111"/>
+          <rect x="155" y="97" width="7" height="7" fill="#111"/>
+          <rect x="183" y="97" width="7" height="7" fill="#111"/>
+          <rect x="24"  y="111" width="7" height="7" fill="#111"/>
+          <rect x="52"  y="111" width="7" height="7" fill="#111"/>
+          <rect x="69"  y="111" width="7" height="7" fill="#111"/>
+          <rect x="97"  y="111" width="7" height="7" fill="#111"/>
+          <rect x="125" y="111" width="7" height="7" fill="#111"/>
+          <rect x="169" y="111" width="7" height="7" fill="#111"/>
+          <rect x="10"  y="125" width="7" height="7" fill="#111"/>
+          <rect x="38"  y="125" width="7" height="7" fill="#111"/>
+          <rect x="69"  y="125" width="7" height="7" fill="#111"/>
+          <rect x="97"  y="125" width="7" height="7" fill="#111"/>
+          <rect x="125" y="125" width="7" height="7" fill="#111"/>
+          <rect x="141" y="125" width="7" height="7" fill="#111"/>
+          <rect x="183" y="125" width="7" height="7" fill="#111"/>
+          <rect x="69"  y="141" width="7" height="7" fill="#111"/>
+          <rect x="97"  y="141" width="7" height="7" fill="#111"/>
+          <rect x="111" y="141" width="7" height="7" fill="#111"/>
+          <rect x="141" y="141" width="7" height="7" fill="#111"/>
+          <rect x="155" y="141" width="7" height="7" fill="#111"/>
+          <rect x="183" y="141" width="7" height="7" fill="#111"/>
+          <rect x="69"  y="155" width="7" height="7" fill="#111"/>
+          <rect x="83"  y="155" width="7" height="7" fill="#111"/>
+          <rect x="111" y="155" width="7" height="7" fill="#111"/>
+          <rect x="125" y="155" width="7" height="7" fill="#111"/>
+          <rect x="169" y="155" width="7" height="7" fill="#111"/>
+          <rect x="183" y="155" width="7" height="7" fill="#111"/>
+          <rect x="69"  y="169" width="7" height="7" fill="#111"/>
+          <rect x="97"  y="169" width="7" height="7" fill="#111"/>
+          <rect x="125" y="169" width="7" height="7" fill="#111"/>
+          <rect x="141" y="169" width="7" height="7" fill="#111"/>
+          <rect x="155" y="169" width="7" height="7" fill="#111"/>
+          <rect x="69"  y="183" width="7" height="7" fill="#111"/>
+          <rect x="83"  y="183" width="7" height="7" fill="#111"/>
+          <rect x="97"  y="183" width="7" height="7" fill="#111"/>
+          <rect x="111" y="183" width="7" height="7" fill="#111"/>
+          <rect x="141" y="183" width="7" height="7" fill="#111"/>
+          <rect x="169" y="183" width="7" height="7" fill="#111"/>
+          <rect x="183" y="183" width="7" height="7" fill="#111"/>
+        </svg>
+      </div>
+      <div class="barcode-label">📱 סרוק לאישור ✅</div>
+      <button class="barcode-scan-btn" onclick="openVModal()">לחץ לצפייה בתמונה ✅</button>
+      <div style="font-size:12px;color:var(--muted);">סרקו עם מצלמת הטלפון לאימות</div>
+    </div>
   </div>
-  <p class="footer-text" style="margin-bottom:0.5rem;">📧 hello@sheika-tochi.com &nbsp;|&nbsp; 📞 03-1234567</p>
-  <p class="footer-text" style="margin-bottom:0.5rem;">💳 תשלומים מאובטחים דרך PayPal &nbsp;|&nbsp; 🔒 SSL מאובטח</p>
-  <p class="footer-text">© 2025 Sheika Tochi Cold Drinks. כל הזכויות שמורות.</p>
+</section>
+
+<!-- ════════════════ FOOTER ════════════════ -->
+<footer id="contact">
+  <div class="footer-logo">PARROT <span>SHAKE</span></div>
+  <p class="footer-text" style="margin-bottom:0.5rem;">📧 hello@parrot-shake.com &nbsp;|&nbsp; 📞 03-1234567</p>
+  <p class="footer-text">© 2025 Parrot Shake Cold Drinks. כל הזכויות שמורות.</p>
+  <div class="footer-paypal">
+    <span style="font-style:italic;font-weight:900;font-size:18px;">
+      <span style="color:#009cde">Pay</span><span style="color:#003087">Pal</span>
+    </span>
+    תשלומים מאובטחים 🔒
+  </div>
 </footer>
 
-<!-- CART OVERLAY -->
+<!-- ════════════════ CART ════════════════ -->
 <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
-
-<!-- CART DRAWER -->
 <div class="cart-drawer" id="cartDrawer">
   <div class="cart-header">
     <div class="cart-title">🛒 העגלה שלך</div>
     <button class="close-btn" onclick="toggleCart()">✕</button>
   </div>
-  <div class="cart-member-badge" id="cartMemberBadge">👑 חבר מועדון — הנחה פעילה!</div>
   <div id="cartItems"></div>
   <div class="cart-footer">
     <div class="cart-total-row">
-      <span style="color:var(--muted)">סכום:</span>
-      <span id="cartSubtotal">₪0</span>
-    </div>
-    <div class="cart-discount-row" id="cartDiscountRow">
-      <span>🎉 הנחת מועדון:</span>
-      <span id="cartDiscountAmt" style="font-weight:800;">-₪0</span>
-    </div>
-    <div class="cart-total-row" style="border-top:1px solid rgba(255,255,255,0.08);padding-top:0.8rem;margin-top:0.3rem;">
-      <span style="color:var(--muted)">סה"כ לתשלום:</span>
+      <span style="color:var(--muted)">סה"כ:</span>
       <span class="cart-total-num" id="cartTotal">₪0</span>
     </div>
-    <button class="checkout-btn" onclick="checkoutStandard()">תשלום רגיל →</button>
-    <div class="cart-divider">— או —</div>
-    <button class="paypal-checkout-btn" onclick="checkoutPaypal()">
-      🅿 שלם עם PayPal
+    <button class="checkout-btn" onclick="checkout()">לתשלום רגיל →</button>
+    <button class="paypal-checkout-btn" onclick="paypalCheckout()">
+      <span style="font-style:italic;font-weight:900;font-size:16px;">
+        <span style="color:#009cde">Pay</span><span style="color:#c0dbf5">Pal</span>
+      </span>
+      שלם עם PayPal
     </button>
-    <div class="paypal-secure" style="margin-top:8px;">🔒 תשלום מאובטח</div>
   </div>
 </div>
 
-<!-- PAYPAL MODAL (Membership) -->
-<div class="modal-overlay" id="paypalModal">
-  <div class="paypal-modal">
-    <div class="paypal-modal-logo">🅿</div>
-    <div class="paypal-modal-title">תשלום דרך PayPal</div>
-    <div id="ppPlanName" style="color:var(--muted);font-size:13px;margin-bottom:0.5rem;"></div>
-    <div class="paypal-modal-amount" id="ppAmount">₪0</div>
-    <div class="paypal-modal-desc" id="ppDesc"></div>
-    <input class="paypal-email-input" type="email" id="ppEmail" placeholder="הכניסו את כתובת האימייל של PayPal שלכם" />
-    <button class="paypal-confirm-btn" onclick="confirmPaypal()">
-      ✓ אשר ושלם דרך PayPal
-    </button>
-    <button class="paypal-cancel-btn" onclick="closePaypalModal()">ביטול</button>
-    <div class="paypal-ssl">🔒 מוצפן ומאובטח — PayPal Protected</div>
+<!-- ════════════════ MEMBERSHIP MODAL ════════════════ -->
+<div class="modal-overlay" id="memberModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('memberModal')">✕</button>
+    <div id="modalContent"></div>
   </div>
 </div>
 
-<!-- PAYPAL MODAL (Cart checkout) -->
-<div class="modal-overlay" id="paypalCartModal">
-  <div class="paypal-modal">
-    <div class="paypal-modal-logo">🅿</div>
-    <div class="paypal-modal-title">תשלום עגלה</div>
-    <div style="color:var(--muted);font-size:13px;margin-bottom:0.5rem;">סיכום הזמנתך</div>
-    <div class="paypal-modal-amount" id="ppCartAmount">₪0</div>
-    <div class="paypal-modal-desc" id="ppCartDesc" style="font-size:12px;max-height:120px;overflow:auto;"></div>
-    <input class="paypal-email-input" type="email" id="ppCartEmail" placeholder="כתובת PayPal שלכם" />
-    <button class="paypal-confirm-btn" onclick="confirmCartPaypal()">
-      ✓ אשר ושלם דרך PayPal
-    </button>
-    <button class="paypal-cancel-btn" onclick="closeCartPaypalModal()">ביטול</button>
-    <div class="paypal-ssl">🔒 מוצפן ומאובטח — PayPal Protected</div>
+<!-- ════════════════ BUY DRINK MODAL ════════════════ -->
+<div class="modal-overlay" id="drinkModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('drinkModal')">✕</button>
+    <div id="drinkModalContent"></div>
   </div>
 </div>
 
-<!-- V MODAL -->
+<!-- ════════════════ ✅ V MODAL ════════════════ -->
 <div class="modal-overlay" id="vModal">
-  <div class="v-modal">
-    <div class="v-emoji-big">✅</div>
-    <div class="v-title">מאומת! ✓</div>
-    <div class="v-subtitle">ברוכים הבאים למשפחת Sheika Tochi!<br>החברות שלכם אושרה בהצלחה 🎉</div>
-    <button class="v-close-btn" onclick="closeVModal()">סגור</button>
+  <div class="modal" style="text-align:center;max-width:360px;">
+    <button class="modal-close" onclick="closeModal('vModal')">✕</button>
+    <div style="font-size:110px;line-height:1;margin-bottom:1rem;">✅</div>
+    <h2 style="font-family:'Bebas Neue';font-size:36px;letter-spacing:3px;color:var(--green);text-shadow:0 0 20px rgba(34,197,94,0.5);">VERIFIED</h2>
+    <p style="color:var(--muted);font-size:14px;margin-top:0.75rem;line-height:1.7;">
+      Parrot Shake — מאומת רשמית ✅<br>תודה שסרקת!
+    </p>
+    <div style="margin-top:1.5rem;font-size:56px;">🦜</div>
+    <p style="color:var(--muted);font-size:11px;margin-top:1rem;">© 2025 Parrot Shake Cold Drinks</p>
   </div>
 </div>
 
-<!-- TOAST -->
-<div class="toast" id="toast"></div>
-
+<!-- ════════════════ SCRIPT ════════════════ -->
 <script>
-/* ═══════════════════════════════════════════
-   PRODUCTS DATA
-═══════════════════════════════════════════ */
+/* ── DATA ── */
 const products = [
-  { id:1,  name:"Parrot Mango",    desc:"מנגו טרופי עם נגיעת ליים רענן",        price:14, emoji:"🥭", cat:"tropical", badge:"הכי נמכר" },
-  { id:2,  name:"Tochi Passion",   desc:"פסיפלורה ותפוז בלנד מושלם",           price:14, emoji:"🍊", cat:"tropical", badge:"" },
-  { id:3,  name:"Coconut Storm",   desc:"קוקוס ואננס קרח",                      price:16, emoji:"🥥", cat:"tropical", badge:"חדש" },
-  { id:4,  name:"Lemon Blast",     desc:"לימון חריף עם מנטה",                  price:12, emoji:"🍋", cat:"citrus",   badge:"" },
-  { id:5,  name:"Citrus Rush",     desc:"תפוז, אשכולית ולימונד",               price:13, emoji:"🍊", cat:"citrus",   badge:"" },
-  { id:6,  name:"Berry Wave",      desc:"פירות יער עם קמה",                    price:15, emoji:"🍇", cat:"berry",    badge:"" },
-  { id:7,  name:"Strawberry Sky",  desc:"תות שדה ובננה קפוא",                  price:15, emoji:"🍓", cat:"berry",    badge:"אהוב" },
-  { id:8,  name:"Tochi Energy",    desc:"קפאין טבעי ממאטה",                    price:18, emoji:"⚡", cat:"energy",   badge:"" },
-  { id:9,  name:"Parrot Power",    desc:"ג'ינג'ר, לימון ואנרגיה",              price:18, emoji:"🦜", cat:"energy",   badge:"חזק" },
-  { id:10, name:"Blue Lagoon",     desc:"בלוברי, לוטוס ומנטה",                price:16, emoji:"🫐", cat:"berry",    badge:"" },
-  { id:11, name:"Sunset Punch",    desc:"מולטי-פרי טרופי",                     price:14, emoji:"🌅", cat:"tropical", badge:"" },
-  { id:12, name:"Lime Sprint",     desc:"ליים, מלון ומים מוגזים",              price:12, emoji:"🍈", cat:"citrus",   badge:"" },
-  { id:13, name:"Guava Dream",     desc:"גויאבה, אננס וניחוח קוקוס",          price:15, emoji:"🌺", cat:"tropical", badge:"חדש" },
-  { id:14, name:"Watermelon Chill",desc:"אבטיח קר עם נגיעת נענע",             price:13, emoji:"🍉", cat:"berry",    badge:"" },
-  { id:15, name:"Ginger Kick",     desc:"ג'ינג'ר חד עם לימון ודבש",           price:16, emoji:"🫚", cat:"energy",   badge:"חריף" },
-  { id:16, name:"Pink Flamingo",   desc:"תות, קיווי ויוגורט",                  price:15, emoji:"🦩", cat:"berry",    badge:"" },
+  { id:1,  name:"Parrot Mango",    desc:"מנגו טרופי עם נגיעת ליים רענן",     price:14, emoji:"🥭", cat:"tropical", badge:"הכי נמכר" },
+  { id:2,  name:"Tochi Passion",   desc:"פסיפלורה ותפוז בלנד מושלם",         price:14, emoji:"🍊", cat:"tropical", badge:"" },
+  { id:3,  name:"Coconut Storm",   desc:"קוקוס ואננס קרח",                   price:16, emoji:"🥥", cat:"tropical", badge:"חדש" },
+  { id:4,  name:"Lemon Blast",     desc:"לימון חריף עם מנטה",                price:12, emoji:"🍋", cat:"citrus",   badge:"" },
+  { id:5,  name:"Citrus Rush",     desc:"תפוז, אשכולית ולימונד",             price:13, emoji:"🍊", cat:"citrus",   badge:"" },
+  { id:6,  name:"Berry Wave",      desc:"פירות יער עם קמה",                  price:15, emoji:"🍇", cat:"berry",    badge:"" },
+  { id:7,  name:"Strawberry Sky",  desc:"תות שדה ובננה קפוא",               price:15, emoji:"🍓", cat:"berry",    badge:"אהוב" },
+  { id:8,  name:"Tochi Energy",    desc:"קפאין טבעי ממאטה",                  price:18, emoji:"⚡", cat:"energy",   badge:"" },
+  { id:9,  name:"Parrot Power",    desc:"ג'ינג'ר, לימון ואנרגיה",            price:18, emoji:"🦜", cat:"energy",   badge:"חזק" },
+  { id:10, name:"Blue Lagoon",     desc:"בלוברי, לוטוס ומנטה",              price:16, emoji:"🫐", cat:"berry",    badge:"" },
+  { id:11, name:"Sunset Punch",    desc:"מולטי-פרי טרופי",                   price:14, emoji:"🌅", cat:"tropical", badge:"" },
+  { id:12, name:"Lime Sprint",     desc:"ליים, מלון ומים מוגזים",            price:12, emoji:"🍈", cat:"citrus",   badge:"" },
 ];
 
-const MEMBER_CODES = ["tochi2025", "vip123", "parrot", "sheika"];
+const tiers = [
+  { id:"bronze", name:"Bronze",  icon:"🥉", price:29,  period:"חודשי", popular:false,
+    features:["5% הנחה על כל הזמנה","ניוזלטר חברים בלעדי","גישה לטעמים חדשים ראשון","כרטיס חבר דיגיטלי"] },
+  { id:"silver", name:"Silver",  icon:"🥈", price:59,  period:"חודשי", popular:false,
+    features:["10% הנחה על כל הזמנה","משקה מתנה בחודש","גישה לאירועים בלעדיים","שינוע חינם מעל ₪80","קדימות בהזמנות"] },
+  { id:"gold",   name:"Gold",    icon:"🥇", price:99,  period:"חודשי", popular:true,
+    features:["15% הנחה על כל הזמנה","2 משקאות מתנה בחודש","שינוע חינם תמיד","גישה לתפריט VIP","הזמנות מוקדמות","ביקור במפעל (פעם בשנה)"] },
+  { id:"vip",    name:"VIP 🔥", icon:"👑", price:199, period:"חודשי", popular:false,
+    features:["20% הנחה על כל הזמנה","משקאות מתנה ללא הגבלה","שינוע חינם + אקספרס","גישה לכל התפריטים","מנהל חשבון אישי","הופעות ואירועים VIP","ברקוד כניסה לאזורי VIP"] },
+];
 
+/* ── CART ── */
 let cart = {};
 let activeFilter = 'all';
-let isMember = false;
-let memberDiscount = 0.15;
 
-/* ═══════════════════════════════════════════
-   MEMBER LOGIN
-═══════════════════════════════════════════ */
-function loginMember() {
-  const val = document.getElementById('memberIdInput').value.trim().toLowerCase();
-  const status = document.getElementById('memberStatus');
-  if (!val) { showToast('⚠️ הכניסו מספר חבר', 'error'); return; }
-  if (MEMBER_CODES.includes(val)) {
-    isMember = true;
-    status.className = 'active';
-    status.style.display = 'inline-flex';
-    status.innerHTML = '✓ חבר מועדון — 15% הנחה!';
-    showToast('🎉 ברוך הבא, חבר מועדון!', 'success');
-    const badge = document.getElementById('cartMemberBadge');
-    if (badge) badge.style.display = 'flex';
-    renderCart();
-  } else {
-    status.style.display = 'none';
-    isMember = false;
-    showToast('❌ קוד לא נמצא. נסה: tochi2025', 'error');
-  }
-}
+const catBg = {
+  tropical:'rgba(249,115,22,0.08)',
+  citrus:'rgba(253,211,77,0.08)',
+  berry:'rgba(232,50,10,0.08)',
+  energy:'rgba(6,182,212,0.08)'
+};
 
-/* ═══════════════════════════════════════════
-   PRODUCTS RENDER
-═══════════════════════════════════════════ */
 function renderProducts() {
   const grid = document.getElementById('productsGrid');
-  const filtered = activeFilter === 'all' ? products : products.filter(p => p.cat === activeFilter);
-  grid.innerHTML = filtered.map(p => {
-    const inCart = cart[p.id] > 0;
-    const bg = {
-      tropical:'rgba(249,115,22,0.08)',
-      citrus:'rgba(253,211,77,0.08)',
-      berry:'rgba(232,50,10,0.08)',
-      energy:'rgba(6,182,212,0.08)'
-    }[p.cat] || 'rgba(255,255,255,0.03)';
-    const displayPrice = isMember ? Math.round(p.price * (1 - memberDiscount)) : p.price;
+  const list = activeFilter === 'all' ? products : products.filter(p => p.cat === activeFilter);
+  grid.innerHTML = list.map(p => {
+    const inCart = !!cart[p.id];
     return `<div class="product-card">
-      <div class="product-img" style="background:${bg}">
+      <div class="product-img" style="background:${catBg[p.cat]||'rgba(255,255,255,0.03)'}">
         ${p.emoji}
         ${p.badge ? `<div class="product-badge">${p.badge}</div>` : ''}
       </div>
@@ -1074,12 +844,17 @@ function renderProducts() {
         <div class="product-name">${p.name}</div>
         <div class="product-desc">${p.desc}</div>
         <div class="product-footer">
-          <div class="product-price">
-            ₪${displayPrice}
-            ${isMember ? `<span style="text-decoration:line-through;color:var(--muted)"> ₪${p.price}</span>` : '<span>/ 330ml</span>'}
-          </div>
-          <button class="add-btn ${inCart ? 'in-cart' : ''}" onclick="addToCart(${p.id})">${inCart ? (cart[p.id]) : '+'}</button>
+          <div class="product-price">₪${p.price} <span>/ 330ml</span></div>
+          <button class="add-btn ${inCart?'in-cart':''}" onclick="addToCart(${p.id})">
+            ${inCart ? cart[p.id] : '+'}
+          </button>
         </div>
+        <button class="buy-now-btn" onclick="openBuyDrink(${p.id})">
+          <span style="font-style:italic;font-weight:900;font-size:14px;">
+            <span style="color:#009cde">Pay</span><span style="color:#c0dbf5">Pal</span>
+          </span>
+          קנה עכשיו — ₪${p.price}
+        </button>
       </div>
     </div>`;
   }).join('');
@@ -1092,59 +867,29 @@ function filterProducts(cat, btn) {
   renderProducts();
 }
 
-/* ═══════════════════════════════════════════
-   CART
-═══════════════════════════════════════════ */
 function addToCart(id) {
   cart[id] = (cart[id] || 0) + 1;
-  renderProducts();
-  renderCart();
-  showToast('✓ נוסף לעגלה!', 'success');
-}
-
-function getCartTotals() {
-  let sub = 0;
-  Object.entries(cart).forEach(([id, q]) => {
-    const p = products.find(x => x.id == id);
-    if (p) sub += p.price * q;
-  });
-  const disc = isMember ? Math.round(sub * memberDiscount) : 0;
-  const total = sub - disc;
-  return { sub, disc, total };
+  renderProducts(); renderCart();
 }
 
 function renderCart() {
-  const { sub, disc, total } = getCartTotals();
-  const count = Object.values(cart).reduce((a,b) => a+b, 0);
+  const entries = Object.entries(cart).filter(([,q]) => q > 0);
+  const total = entries.reduce((s,[id,q]) => s + (products.find(x=>x.id==id)?.price||0)*q, 0);
+  const count = entries.reduce((s,[,q]) => s+q, 0);
   document.getElementById('cartBadge').textContent = count;
-  document.getElementById('cartSubtotal').textContent = `₪${sub}`;
   document.getElementById('cartTotal').textContent = `₪${total}`;
-
-  const discRow = document.getElementById('cartDiscountRow');
-  if (isMember && disc > 0) {
-    discRow.classList.add('show');
-    document.getElementById('cartDiscountAmt').textContent = `-₪${disc}`;
-  } else {
-    discRow.classList.remove('show');
-  }
-
-  const badge = document.getElementById('cartMemberBadge');
-  if (badge) badge.style.display = isMember ? 'flex' : 'none';
-
-  const items = Object.entries(cart).filter(([,q]) => q > 0);
   const el = document.getElementById('cartItems');
-  if (!items.length) {
+  if (!entries.length) {
     el.innerHTML = '<div class="cart-empty">🦜 העגלה ריקה<br><small>הוסיפו משקאות מהתפריט</small></div>';
     return;
   }
-  el.innerHTML = items.map(([id, qty]) => {
-    const p = products.find(x => x.id == id);
-    const price = isMember ? Math.round(p.price * (1 - memberDiscount)) : p.price;
+  el.innerHTML = entries.map(([id,qty]) => {
+    const p = products.find(x=>x.id==id);
     return `<div class="cart-item">
       <div class="cart-item-emoji">${p.emoji}</div>
       <div class="cart-item-info">
         <div class="cart-item-name">${p.name}</div>
-        <div class="cart-item-price">₪${price * qty}</div>
+        <div class="cart-item-price">₪${p.price*qty}</div>
       </div>
       <div class="qty-ctrl">
         <button class="qty-btn" onclick="changeQty(${id},-1)">−</button>
@@ -1155,11 +900,10 @@ function renderCart() {
   }).join('');
 }
 
-function changeQty(id, delta) {
-  cart[id] = Math.max(0, (cart[id] || 0) + delta);
-  if (cart[id] === 0) delete cart[id];
-  renderCart();
-  renderProducts();
+function changeQty(id, d) {
+  cart[id] = Math.max(0,(cart[id]||0)+d);
+  if (!cart[id]) delete cart[id];
+  renderCart(); renderProducts();
 }
 
 function toggleCart() {
@@ -1167,119 +911,125 @@ function toggleCart() {
   document.getElementById('cartOverlay').classList.toggle('open');
 }
 
-/* ═══════════════════════════════════════════
-   CHECKOUT
-═══════════════════════════════════════════ */
-function checkoutStandard() {
-  const count = Object.values(cart).reduce((a,b) => a+b, 0);
-  if (!count) { showToast('⚠️ העגלה ריקה', 'error'); return; }
-  const { total } = getCartTotals();
-  showToast(`✅ הזמנה בסך ₪${total} נשלחה! תודה 🦜`, 'success');
-  cart = {};
-  renderCart();
-  renderProducts();
-  toggleCart();
+function cartTotalVal() {
+  return Object.entries(cart).reduce((s,[id,q])=>s+(products.find(x=>x.id==id)?.price||0)*q, 0);
 }
 
-function checkoutPaypal() {
-  const count = Object.values(cart).reduce((a,b) => a+b, 0);
-  if (!count) { showToast('⚠️ העגלה ריקה', 'error'); return; }
-  const { total } = getCartTotals();
-  const items = Object.entries(cart).filter(([,q]) => q > 0)
-    .map(([id, qty]) => { const p = products.find(x => x.id == id); return `${p.emoji} ${p.name} x${qty}`; })
-    .join('\n');
-  document.getElementById('ppCartAmount').textContent = `₪${total}`;
-  document.getElementById('ppCartDesc').innerHTML = items.split('\n').map(i => `<div style="padding:3px 0">• ${i}</div>`).join('');
-  document.getElementById('paypalCartModal').classList.add('open');
+function checkout() {
+  if (!Object.keys(cart).length) { showToast('❌ העגלה ריקה!','#E8320A'); return; }
+  showToast(`✅ הזמנה התקבלה! סה"כ ₪${cartTotalVal()}`);
+  cart={}; renderCart(); renderProducts(); toggleCart();
 }
 
-function confirmCartPaypal() {
-  const email = document.getElementById('ppCartEmail').value.trim();
-  if (!email || !email.includes('@')) { showToast('⚠️ הכניסו אימייל תקין', 'error'); return; }
-  closeCartPaypalModal();
-  toggleCart();
-  showToast(`✅ תשלום PayPal אושר! קבלה נשלחה ל-${email}`, 'success');
-  cart = {};
-  renderCart();
-  renderProducts();
+function paypalCheckout() {
+  if (!Object.keys(cart).length) { showToast('❌ העגלה ריקה!','#E8320A'); return; }
+  const t = cartTotalVal();
+  showToast('💳 מועבר ל-PayPal...','#0070ba');
+  setTimeout(()=>{ showToast(`✅ תשלום PayPal הושלם! ₪${t}`); cart={}; renderCart(); renderProducts(); toggleCart(); }, 2000);
 }
 
-function closeCartPaypalModal() {
-  document.getElementById('paypalCartModal').classList.remove('open');
+/* ── BUY DRINK MODAL ── */
+function openBuyDrink(id) {
+  const p = products.find(x=>x.id==id);
+  document.getElementById('drinkModalContent').innerHTML = `
+    <h2>${p.emoji} ${p.name}</h2>
+    <div class="modal-sub">${p.desc}</div>
+    <div class="modal-price">₪${p.price} <small>/ 330ml</small></div>
+    <ul class="modal-features">
+      <li><span class="check">✓</span> 330ml בקבוק קר</li>
+      <li><span class="check">✓</span> 100% טבעי</li>
+      <li><span class="check">✓</span> משלוח מהיר</li>
+      <li><span class="check">✓</span> ללא צבעים מלאכותיים</li>
+    </ul>
+    <button class="modal-paypal-btn" onclick="buyDrinkPaypal(${id})">
+      💳
+      <span style="font-style:italic;font-weight:900;font-size:18px;">
+        <span style="color:#009cde">Pay</span><span style="color:#c0dbf5">Pal</span>
+      </span>
+      שלם ₪${p.price} עכשיו
+    </button>
+    <p class="modal-note">🔒 תשלום מאובטח ומוצפן דרך PayPal</p>`;
+  document.getElementById('drinkModal').classList.add('open');
 }
 
-/* ═══════════════════════════════════════════
-   PAYPAL MEMBERSHIP MODAL
-═══════════════════════════════════════════ */
-let currentPlan = {};
-function openPaypal(name, amount, desc) {
-  currentPlan = { name, amount, desc };
-  document.getElementById('ppPlanName').textContent = `חבילת ${name}`;
-  document.getElementById('ppAmount').textContent = `₪${amount}/חודש`;
-  document.getElementById('ppDesc').textContent = `הצטרפות ל${desc} — ${name} Plan`;
-  document.getElementById('ppEmail').value = '';
-  document.getElementById('paypalModal').classList.add('open');
+function buyDrinkPaypal(id) {
+  const p = products.find(x=>x.id==id);
+  closeModal('drinkModal');
+  showToast('💳 מועבר ל-PayPal...','#0070ba');
+  setTimeout(()=>showToast(`✅ רכישת ${p.name} הושלמה!`), 2000);
 }
 
-function closePaypalModal() {
-  document.getElementById('paypalModal').classList.remove('open');
+/* ── MEMBERSHIP RENDER ── */
+function renderMembership() {
+  document.getElementById('membershipGrid').innerHTML = tiers.map(t=>`
+    <div class="membership-card ${t.id}" style="position:relative;overflow:hidden;">
+      ${t.popular ? '<div class="popular-ribbon">פופולרי</div>' : ''}
+      <div class="member-tier-badge">${t.name}</div>
+      <span class="member-icon">${t.icon}</span>
+      <div class="member-name">${t.name.replace('🔥','').trim()} MEMBER</div>
+      <div class="member-price">₪${t.price} <span>/ ${t.period}</span></div>
+      <ul class="member-features">
+        ${t.features.map(f=>`<li><span class="check">✓</span> ${f}</li>`).join('')}
+      </ul>
+      <button class="paypal-btn" onclick="openMemberModal('${t.id}')">
+        <span style="font-style:italic;font-weight:900;font-size:15px;">
+          <span style="color:#009cde">Pay</span><span style="color:#c0dbf5">Pal</span>
+        </span>
+        הצטרף עם PayPal
+      </button>
+    </div>`).join('');
 }
 
-function confirmPaypal() {
-  const email = document.getElementById('ppEmail').value.trim();
-  if (!email || !email.includes('@')) { showToast('⚠️ הכניסו אימייל תקין', 'error'); return; }
-  closePaypalModal();
-  showToast(`🎉 ${currentPlan.name} — הצטרפות אושרה! קבלה ל-${email}`, 'success');
-  isMember = true;
-  memberDiscount = currentPlan.name === 'VIP Parrot' ? 0.20 : currentPlan.name === 'Tochi Pro' ? 0.15 : 0.10;
-  const status = document.getElementById('memberStatus');
-  status.className = 'active';
-  status.style.display = 'inline-flex';
-  status.innerHTML = `✓ ${currentPlan.name} — חבר מועדון!`;
-  const badge = document.getElementById('cartMemberBadge');
-  if (badge) badge.style.display = 'flex';
-  renderProducts();
-  renderCart();
+function openMemberModal(id) {
+  const t = tiers.find(x=>x.id===id);
+  document.getElementById('modalContent').innerHTML = `
+    <h2>${t.icon} ${t.name} MEMBERSHIP</h2>
+    <div class="modal-sub">הצטרפות למועדון Parrot Shake — ${t.name}</div>
+    <div class="modal-price">₪${t.price} <small>/ ${t.period}</small></div>
+    <ul class="modal-features">
+      ${t.features.map(f=>`<li><span class="check">✓</span> ${f}</li>`).join('')}
+    </ul>
+    <button class="modal-paypal-btn" onclick="joinMember('${t.id}')">
+      💳
+      <span style="font-style:italic;font-weight:900;font-size:18px;">
+        <span style="color:#009cde">Pay</span><span style="color:#c0dbf5">Pal</span>
+      </span>
+      הצטרף עכשיו — ₪${t.price}/${t.period}
+    </button>
+    <p class="modal-note">🔒 תשלום מאובטח ומוצפן דרך PayPal<br>ניתן לבטל בכל עת</p>`;
+  document.getElementById('memberModal').classList.add('open');
 }
 
-/* ═══════════════════════════════════════════
-   V MODAL (QR click)
-═══════════════════════════════════════════ */
-function openVModal() {
-  document.getElementById('vModal').classList.add('open');
-}
-function closeVModal() {
-  document.getElementById('vModal').classList.remove('open');
+function joinMember(id) {
+  const t = tiers.find(x=>x.id===id);
+  closeModal('memberModal');
+  showToast('💳 מועבר ל-PayPal...','#0070ba');
+  setTimeout(()=>showToast(`${t.icon} ברוכים הבאים למועדון ${t.name}!`), 2000);
 }
 
-/* ═══════════════════════════════════════════
-   TOAST
-═══════════════════════════════════════════ */
-function showToast(msg, type='') {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.className = `toast ${type}`;
-  t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 3200);
-}
+/* ── MODALS ── */
+function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+function openVModal()   { document.getElementById('vModal').classList.add('open'); }
 
-/* ═══════════════════════════════════════════
-   QR CODE
-═══════════════════════════════════════════ */
-window.addEventListener('load', () => {
-  if (typeof QRCode !== 'undefined') {
-    new QRCode(document.getElementById('qrcode'), {
-      text: "https://sheika-tochi.com/verify/✅",
-      width: 180,
-      height: 180,
-      colorDark: "#003087",
-      colorLight: "#ffffff",
-      correctLevel: QRCode.CorrectLevel.H
-    });
-  }
-  renderProducts();
-  renderCart();
+['memberModal','drinkModal','vModal'].forEach(id=>{
+  document.getElementById(id).addEventListener('click', function(e){
+    if(e.target===this) this.classList.remove('open');
+  });
 });
+
+/* ── TOAST ── */
+function showToast(msg, bg) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.style.background = bg || 'var(--green)';
+  el.classList.add('show');
+  setTimeout(()=>el.classList.remove('show'), 3000);
+}
+
+/* ── INIT ── */
+renderProducts();
+renderCart();
+renderMembership();
 </script>
 </body>
 </html>
