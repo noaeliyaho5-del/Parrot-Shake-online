@@ -1232,7 +1232,8 @@ footer {
       <button class="filter-tab active" onclick="filterProducts('all',this)">🌊 הכל</button>
       <button class="filter-tab" onclick="filterProducts('tropical',this)">🌴 טרופי</button>
       <button class="filter-tab" onclick="filterProducts('citrus',this)">🍋 הדרים</button>
-      <button class="filter-tab" onclick="filterProducts('berry',this)">🍇 פירות יער</button
+      <button class="filter-tab" onclick="filterProducts('berry',this)">🍇 פירות יער</button>
+      <button class="filter-tab" onclick="filterProducts('energy',this)">⚡ אנרגיה</button>
       <button class="filter-tab" onclick="filterProducts('special',this)">✨ מיוחד</button>
     </div>
     <select class="sort-select" id="sortSelect" onchange="sortProducts(this.value)">
@@ -1512,20 +1513,18 @@ footer {
       <h2>צרו קשר</h2>
       <p>יש לכם שאלות? רוצים להזמין בכמויות גדולות? צוות Parrot Shake כאן בשבילכם.</p>
       <div class="contact-links">
-        <a class="c-link" href="mailto:noaeliyaho5@gmail.com
-">
+        <a class="c-link" href="mailto:hello@parrot-shake.com">
           <div class="c-link-icon">📧</div>
           <div class="c-link-text">
             <div class="c-link-label">אימייל</div>
-            <div class="c-link-val">noaeliyaho5@gmail.com
-</div>
+            <div class="c-link-val">hello@parrot-shake.com</div>
           </div>
         </a>
         <a class="c-link" href="tel:031234567">
           <div class="c-link-icon">📞</div>
           <div class="c-link-text">
             <div class="c-link-label">טלפון</div>
-            <div class="c-link-val">0544549617</div>
+            <div class="c-link-val">03-1234567</div>
           </div>
         </a>
         <a class="c-link" href="#">
@@ -1689,11 +1688,13 @@ footer {
 ────────────────────────────────────────────────────── */
 const PRODUCTS = [
   { id:1,  name:"Parrot Mango",    desc:"מנגו טרופי עם נגיעת ליים רענן",            price:14, emoji:"🥭", cat:"tropical", badge:"הכי נמכר", badgeType:"",      tags:["טרופי","מנגו","ויטמין C"] },
+  { id:2,  name:"Tochi Passion",   desc:"פסיפלורה ותפוז בלנד מושלם",               price:14, emoji:"🍊", cat:"tropical", badge:"",          badgeType:"",      tags:["טרופי","פסיפלורה"] },
+  { id:3,  name:"Coconut Storm",   desc:"קוקוס ואננס קרח מרענן",                   price:16, emoji:"🥥", cat:"tropical", badge:"חדש!",      badgeType:"new",   tags:["טרופי","קוקוס"] },
   { id:4,  name:"Lemon Blast",     desc:"לימון חריף עם מנטה קפואה",                price:12, emoji:"🍋", cat:"citrus",   badge:"",          badgeType:"",      tags:["הדרים","לימון","מנטה"] },
   { id:5,  name:"Citrus Rush",     desc:"תפוז, אשכולית ולימונד קלאסי",             price:13, emoji:"🍊", cat:"citrus",   badge:"",          badgeType:"",      tags:["הדרים","תפוז"] },
   { id:6,  name:"Berry Wave",      desc:"פירות יער עם קמה ואוכמניות",              price:15, emoji:"🍇", cat:"berry",    badge:"",          badgeType:"",      tags:["פירות יער","אנטיאוקסידנט"] },
   { id:7,  name:"Strawberry Sky",  desc:"תות שדה ובננה קפואה קרמית",              price:15, emoji:"🍓", cat:"berry",    badge:"אהוב ❤️",  badgeType:"love",  tags:["פירות יער","תות"] },
-  { id:8,  name:"Tochi Energy",    desc:קפה חם price:18, emoji:"⚡", cat:"energy",   badge:"",          badgeType:"",      tags:["אנרגיה","מאטה","קפאין"] },
+  { id:8,  name:"Tochi Energy",    desc:"קפאין טבעי ממאטה, ג'ינג'ר וליים",         price:18, emoji:"⚡", cat:"energy",   badge:"",          badgeType:"",      tags:["אנרגיה","מאטה","קפאין"] },
   { id:9,  name:"Parrot Power",    desc:"ג'ינג'ר, לימון, כורכום ואנרגיה טבעית",    price:18, emoji:"🦜", cat:"energy",   badge:"חזק 💪",  badgeType:"power", tags:["אנרגיה","ג'ינג'ר","חסינות"] },
   { id:10, name:"Blue Lagoon",     desc:"בלוברי, פרח לוטוס ומנטה קרה",             price:16, emoji:"🫐", cat:"berry",    badge:"",          badgeType:"",      tags:["פירות יער","בלוברי"] },
   { id:11, name:"Sunset Punch",    desc:"מולטי-פרי טרופי: מנגו, פפאיה, ספוד",     price:14, emoji:"🌅", cat:"tropical", badge:"",          badgeType:"",      tags:["טרופי","מולטי-פרי"] },
